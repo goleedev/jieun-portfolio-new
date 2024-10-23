@@ -73,7 +73,7 @@ export default function Header() {
         )}
 
         <nav className="opacity-0 md:opacity-100 md:flex md:w-[calc(100%-130px)] justify-center h-12">
-          <ul className="flex space-x-2 items-center">{navLinks}</ul>
+          <ul className="flex space-x-1 items-center">{navLinks}</ul>
         </nav>
 
         <button
