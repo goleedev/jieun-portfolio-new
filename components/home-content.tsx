@@ -39,16 +39,16 @@ function HomeContent(): JSX.Element {
       <div className="flex flex-col items-center">
         <TextLine>
           <span>D</span>
-          <ImageComponent src="/gifs/e.gif" alt="E gif" className="-mx-12" />
+          <ImageComponent src="/gifs/E.gif" alt="E gif" className="-mx-12" />
           <span>LIGH</span>
-          <ImageComponent src="/gifs/t.gif" alt="T gif" className="-mx-12" />
+          <ImageComponent src="/gifs/T.gif" alt="T gif" className="-mx-12" />
           <span className="ml-8">IN</span>
         </TextLine>
         <TextLine>
           <span>DE</span>
-          <ImageComponent src="/gifs/s.gif" alt="S gif" className="-mx-12" />
+          <ImageComponent src="/gifs/S.gif" alt="S gif" className="-mx-12" />
           <span>IG</span>
-          <ImageComponent src="/gifs/n.gif" alt="N gif" className="-mx-9" />
+          <ImageComponent src="/gifs/N.gif" alt="N gif" className="-mx-9" />
         </TextLine>
       </div>
     </section>
