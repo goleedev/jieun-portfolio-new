@@ -22,7 +22,7 @@ export default function Footer() {
 
   if (pathname === '/') {
     return (
-      <footer className="font-medium text-center font-pretendard text-lg leading-6">
+      <footer className="font-medium text-center font-pretendard text-lg leading-6 pb-6">
         Creating diverse works through UI/UX design and visual identity.
       </footer>
     );
