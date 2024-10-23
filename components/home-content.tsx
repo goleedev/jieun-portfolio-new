@@ -7,7 +7,7 @@ interface ImageComponentProps {
   className?: string;
 }
 
-function ImageComponent({
+export function ImageComponent({
   src,
   alt,
   className,
@@ -25,7 +25,11 @@ function ImageComponent({
   );
 }
 
-function TextLine({ children }: { children: React.ReactNode }): JSX.Element {
+export function TextLine({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element {
   return (
     <div className="flex flex-nowrap justify-center items-center text-[205px]">
       {children}
