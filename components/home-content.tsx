@@ -35,7 +35,7 @@ function TextLine({ children }: { children: React.ReactNode }): JSX.Element {
 
 function HomeContent(): JSX.Element {
   return (
-    <section className="w-full min-h-[calc(100vh-128px)] flex flex-col items-center justify-center text-center font-mono font-black tracking-tighter leading-none overflow-auto">
+    <section className="w-full min-h-[calc(100vh-128px)] flex flex-col items-center justify-center text-center font-mono font-black tracking-tighter leading-none overflow-auto cursor-default">
       <div className="flex flex-col items-center">
         <TextLine>
           <span>D</span>
