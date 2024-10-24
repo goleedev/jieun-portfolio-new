@@ -3,8 +3,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 
+import { useMenu } from '@/utils/MenuContext';
 import { cn } from '@/utils/merge-classes';
 import { CloseIcon, MoreIcon } from './assets';
 
@@ -46,10 +47,8 @@ const navItems = [
 ];
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { isMenuOpen, toggleMenu } = useMenu();
   const pathname = usePathname();
-
-  const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   const navLinks = useMemo(
     () =>
@@ -71,7 +70,6 @@ export default function Header() {
       )),
     [pathname, isMenuOpen]
   );
-
   return (
     <header className="w-full py-4 h-20">
       <div
@@ -79,13 +77,13 @@ export default function Header() {
           'flex justify-between md:justify-normal items-center h-10 md:h-auto'
         }
       >
-        <Link href="/" className="flex-shrink-0">
+        <Link href="/" className="flex-shrink-0 z-[100]">
           <Image
             src={isMenuOpen ? '/images/logo-inverted.png' : '/images/logo.png'}
             alt="Logo"
             width={65}
             height={40}
-            className="cursor-pointer w-[65px] h-10 z-50 fixed left-6 top-5"
+            className="cursor-pointer w-[65px] h-10 fixed left-6 top-5"
             priority
           />
         </Link>
@@ -95,7 +93,7 @@ export default function Header() {
         </nav>
 
         <button
-          className="md:hidden flex items-center fixed right-6 z-40 w-12 h-12 justify-center"
+          className="md:hidden flex items-center fixed right-6 z-[100] w-12 h-12 justify-center"
           onClick={toggleMenu}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >

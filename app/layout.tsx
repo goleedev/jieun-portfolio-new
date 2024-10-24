@@ -6,6 +6,7 @@ import Footer from '@/components/footer';
 import Header from '@/components/header';
 
 import './globals.css';
+import { MenuProvider } from '@/utils/MenuContext';
 
 export const metadata: Metadata = {
   title: 'Jieun Jang | UIUX Designer',
@@ -28,11 +29,13 @@ export default function RootLayout({
   return (
     <DynamicBackground>
       <body>
-        <main className="flex flex-col w-full h-full px-6">
-          <Header />
-          {children}
-          <Footer />
-        </main>
+        <MenuProvider>
+          <main className="flex flex-col w-full h-full px-6">
+            <Header />
+            {children}
+            <Footer />
+          </main>
+        </MenuProvider>
       </body>
       <GoogleAnalytics gaId="" />
     </DynamicBackground>
