@@ -5,11 +5,11 @@ export function getBackgroundColor(pathname: string): string {
     case '/work':
       return '#EFEFEF';
     case '/guestbook':
-      return '#BCBDFD';
+      return '#46D18F';
     case '/resume':
       return '#C3D7F8';
     case '/blog':
-      return '#46D18F';
+      return '#EFEFEF';
     default:
       return '#EFEFEF';
   }
