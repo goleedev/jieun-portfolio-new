@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import HomeContent from '@/components/home-content';
+import GuestbookForm from './components/guestbook-form';
 
 export default async function GuestbookPage() {
   return (
@@ -35,6 +36,8 @@ export default async function GuestbookPage() {
         After reviewing my projects, feel free to leave any questions or
         comments in the guestbook.
       </p>
+
+      <GuestbookForm />
     </>
   );
 }
