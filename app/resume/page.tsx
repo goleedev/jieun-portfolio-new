@@ -1,5 +1,6 @@
-import HomeContent from '@/components/home-content';
 import Image from 'next/image';
+
+import HomeContent from '@/components/home-content';
 
 export default function ResumePage() {
   return (
@@ -14,7 +15,7 @@ export default function ResumePage() {
       />
       <Image
         src="/images/image1.png"
-        alt="smile"
+        alt="clip"
         width={400}
         height={200}
         className="w-[370px] h-[196px] rotate-[15deg] absolute top-[64px] right-11"
@@ -23,7 +24,7 @@ export default function ResumePage() {
       <HomeContent />
       <Image
         src="/images/image5.png"
-        alt="smile"
+        alt="earphone"
         width={250}
         height={350}
         className="w-[248px] h-[332px] absolute bottom-2.5 inset-x-[calc(50%-124px)]"
