@@ -1,24 +1,18 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-// const currentYear = new Date().getFullYear();
-// const excludedPaths = ['/work', '/blog', '/guestbook', '/resume'];
+const paths = ['/work', '/blog', '/guestbook', '/resume'];
+const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   const pathname = usePathname();
-
-  // const pathSegments = pathname.split('/').filter(Boolean);
-  // const isExcluded = excludedPaths.some(
-  //   (path) => pathSegments[0] === path || pathname.startsWith(`/${path}/`)
-  // );
-  // const isVisible = pathname !== '/' && !isExcluded;
-
-  // const footerClass = `
-  //   font-normal font-sans mx-auto w-auto text-black pb-6 md:text-xs
-  //   transition-all duration-300 ease-out
-  //   ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}
-  // `;
+  const existingPaths = paths.some(
+    (path) =>
+      pathname.startsWith(path) &&
+      (pathname === path || pathname.startsWith(`${path}/`))
+  );
 
   if (pathname === '/') {
     return (
@@ -28,5 +22,39 @@ export default function Footer() {
     );
   }
 
-  return <footer />;
+  if (existingPaths) {
+    return (
+      <footer className="border-t border-[#CCC] pt-6">
+        <section className="text-lg leading-6 font-medium pb-40 grid grid-cols-2">
+          <p>Delight In Design</p>
+
+          <div className="grid grid-cols-3">
+            <div className="flex flex-col gap-1">
+              <Link href="/work">Work</Link>
+              <Link href="/blog">Blog</Link>
+            </div>
+            <div className="flex flex-col gap-1">
+              <Link href="/resume">Resume</Link>
+              <Link href="/guestbook">Guestbook</Link>
+            </div>
+            <div className="flex flex-col gap-1">
+              <Link href="">Instagram</Link>
+              <Link href="">Behance</Link>
+              <Link href="">Linkedin</Link>
+            </div>
+          </div>
+        </section>
+
+        <p className="w-full pb-4 text-center font-pretendard text-lg leading-6 text-[#949494]">
+          © {currentYear} JieunJang . All rights reserved.
+        </p>
+      </footer>
+    );
+  }
+
+  return (
+    <footer className="w-full text-center font-pretendard text-lg leading-6 text-[#949494]">
+      © {currentYear} JieunJang . All rights reserved.
+    </footer>
+  );
 }
