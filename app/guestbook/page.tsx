@@ -30,6 +30,11 @@ export default async function GuestbookPage() {
         className="w-[248px] h-[332px] absolute bottom-10 right-[100px]"
         unoptimized
       />
+
+      <p className="text-lg font-medium leading-6 text-center pt-[125px] pb-[104px]">
+        After reviewing my projects, feel free to leave any questions or
+        comments in the guestbook.
+      </p>
     </>
   );
 }

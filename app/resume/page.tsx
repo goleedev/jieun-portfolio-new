@@ -30,6 +30,10 @@ export default function ResumePage() {
         className="w-[248px] h-[332px] absolute bottom-2.5 inset-x-[calc(50%-124px)]"
         unoptimized
       />
+
+      <p className="text-lg font-medium leading-6 text-center pt-20 pb-[104px]">
+        Creating diverse works through UI/UX design and visual identity.
+      </p>
     </>
   );
 }
