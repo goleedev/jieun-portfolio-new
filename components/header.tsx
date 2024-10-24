@@ -41,9 +41,9 @@ const NavLink = ({
 
 const navItems = [
   { title: 'Work', href: '/work' },
-  { title: 'Guestbook', href: '/guestbook' },
   { title: 'Resume', href: '/resume' },
   { title: 'Blog', href: '/blog' },
+  { title: 'Guestbook', href: '/guestbook' },
 ];
 
 export default function Header() {
