@@ -2,11 +2,9 @@
 
 import { ImageComponent, TextLine } from '@/components/home-content';
 
-const currentYear = new Date().getFullYear();
-
 export default function NotFound() {
   return (
-    <section className="w-full flex flex-col min-h-[calc(100vh-156px)] items-center justify-center text-center">
+    <section className="w-full flex flex-col min-h-[calc(100vh-122px)] items-center justify-center text-center">
       <section className="w-full flex items-center justify-center text-center font-mono font-black tracking-tighter leading-none cursor-default">
         <TextLine>
           <span>4</span>
@@ -23,10 +21,6 @@ export default function NotFound() {
           Sorry, that page doesn’t exist!
         </p>
       </div>
-
-      <footer className="fixed bottom-6 text-center font-pretendard text-lg leading-6 text-[#999]">
-        © {currentYear} JieunJang . All rights reserved.
-      </footer>
     </section>
   );
 }
