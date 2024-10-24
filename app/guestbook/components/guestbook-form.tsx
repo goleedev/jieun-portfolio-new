@@ -4,7 +4,11 @@ import { useState, useTransition } from 'react';
 
 import supabase from '@/utils/supabase';
 
-export default function GuestbookForm() {
+export default function GuestbookForm({
+  onMessageSubmitted,
+}: {
+  onMessageSubmitted: () => void;
+}) {
   const [message, setMessage] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -60,7 +64,11 @@ export default function GuestbookForm() {
         if (error) throw error;
 
         setMessage('');
-        setError(null); // Clear any existing errors
+        setError(null);
+
+        if (onMessageSubmitted) {
+          onMessageSubmitted();
+        }
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message || 'Failed to submit message');

@@ -1,9 +1,26 @@
+'use client';
+
 import Image from 'next/image';
 
 import HomeContent from '@/components/home-content';
+import getGuestbook from '@/data/get-guestbook';
 import GuestbookForm from './components/guestbook-form';
+import GuestbookList from './components/guestbook-list';
+import { useEffect, useState } from 'react';
+import { Tables } from '@/types/database-generated.types';
 
-export default async function GuestbookPage() {
+export default function GuestbookPage() {
+  const [messages, setMessages] = useState<Tables<'guestbook'>[]>([]);
+
+  const fetchMessages = async () => {
+    const guestbookMessages = await getGuestbook();
+    setMessages(guestbookMessages);
+  };
+
+  useEffect(() => {
+    fetchMessages();
+  }, []);
+
   return (
     <>
       <Image
@@ -37,7 +54,8 @@ export default async function GuestbookPage() {
         comments in the guestbook.
       </p>
 
-      <GuestbookForm />
+      <GuestbookForm onMessageSubmitted={fetchMessages} />
+      <GuestbookList messages={messages} />
     </>
   );
 }
