@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMemo } from 'react';
 
-import { useMenu } from '@/utils/MenuContext';
+import { useMenu } from '@/utils/menu-context';
 import { cn } from '@/utils/merge-classes';
 import { CloseIcon, MoreIcon } from './assets';
 

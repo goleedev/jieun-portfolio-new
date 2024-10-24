@@ -6,7 +6,7 @@ import Footer from '@/components/footer';
 import Header from '@/components/header';
 
 import './globals.css';
-import { MenuProvider } from '@/utils/MenuContext';
+import { MenuProvider } from '@/utils/menu-context';
 
 export const metadata: Metadata = {
   title: 'Jieun Jang | UIUX Designer',

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import HomeContent from '@/components/home-content';
-import { useMenu } from '@/utils/MenuContext';
+import { useMenu } from '@/utils/menu-context';
 
 interface CursorImage {
   id: number;
