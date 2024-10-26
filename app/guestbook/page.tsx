@@ -2,12 +2,12 @@
 
 import Image from 'next/image';
 
-import HomeContent from '@/components/home-content';
 import getGuestbook from '@/data/get-guestbook';
+import { Tables } from '@/types/database-generated.types';
+import { useEffect, useState } from 'react';
 import GuestbookForm from './components/guestbook-form';
 import GuestbookList from './components/guestbook-list';
-import { useEffect, useState } from 'react';
-import { Tables } from '@/types/database-generated.types';
+import HomeContent from './components/home-content';
 
 export default function GuestbookPage() {
   const [messages, setMessages] = useState<Tables<'guestbook'>[]>([]);
