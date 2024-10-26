@@ -7,7 +7,6 @@ import { useMemo } from 'react';
 
 import { useMenu } from '@/utils/menu-context';
 import { cn } from '@/utils/merge-classes';
-import { CloseIcon, MoreIcon } from './assets';
 
 const NavLink = ({
   title,
@@ -25,17 +24,12 @@ const NavLink = ({
   <Link
     href={href}
     onClick={onClick}
-    className="group relative font-pretendard text-4xl font-normal md:text-base md:h-10 md:py-[9px] md:px-3.5"
+    className={cn(
+      'group relative font-pretendard text-4xl font-normal transition-all duration-200 md:text-base md:h-10 md:leading-6 md:py-[9px] md:px-3.5 md:hover:text-white md:hover:bg-black md:hover:rounded-full',
+      isActive && 'md:text-white md:bg-black md:rounded-full'
+    )}
   >
-    <p
-      className={cn(
-        'text-center',
-        !isLast && 'pb-12',
-        isActive && 'italic pb-12'
-      )}
-    >
-      {title}
-    </p>
+    <p className={cn('text-center', !isLast && 'pb-12')}>{title}</p>
   </Link>
 );
 
@@ -71,13 +65,13 @@ export default function Header() {
     [pathname, isMenuOpen]
   );
   return (
-    <header className="w-full py-4 h-20">
+    <header className="w-full py-4 h-20 z-[100]">
       <div
         className={
           'flex justify-between md:justify-normal items-center h-10 md:h-auto'
         }
       >
-        <Link href="/" className="flex-shrink-0 z-[100]">
+        <Link href="/" className="flex-shrink-0">
           <Image
             src={isMenuOpen ? '/images/logo-inverted.png' : '/images/logo.png'}
             alt="Logo"
@@ -88,16 +82,21 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden md:flex w-full justify-center h-12">
-          <ul className="flex space-x-1 items-center">{navLinks}</ul>
+        <nav className="hidden md:flex w-full justify-center h-12 fixed top-4">
+          <ul className="flex px-1 space-x-1 items-center transition-all duration-200 rounded-full">
+            {navLinks}
+          </ul>
         </nav>
 
         <button
-          className="md:hidden flex items-center fixed right-6 z-[100] w-12 h-12 justify-center"
+          className={cn(
+            'md:hidden flex font-mono items-center fixed top-5 right-5 z-[100] w-fit h-10 px-3.5 py-[9px] justify-center',
+            isMenuOpen && 'text-white'
+          )}
           onClick={toggleMenu}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >
-          {isMenuOpen ? <CloseIcon width={24} /> : <MoreIcon width={24} />}
+          {isMenuOpen ? 'Close' : 'Menu'}
         </button>
       </div>
 

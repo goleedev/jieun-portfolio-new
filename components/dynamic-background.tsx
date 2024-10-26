@@ -7,6 +7,7 @@ import { GeistSans } from 'geist/font/sans';
 import localFont from 'next/font/local';
 
 import { getBackgroundColor } from '@/utils/get-background-color';
+import useScrollBackground from '@/hooks/use-scroll-background';
 
 const pretendard = localFont({
   src: '../app/fonts/PretendardVariable.ttf',
@@ -20,16 +21,24 @@ export default function DynamicBackground({
   children: ReactNode;
 }) {
   const pathname = usePathname();
-  const bgColor = getBackgroundColor(pathname);
+  const defaultHtmlColor = getBackgroundColor(pathname);
+
+  const scrolledHtmlColor = '#EFEFEF';
+  const ulInitialColor = 'transparent';
+  const ulScrolledColor = '#FFFFFF';
+
+  useScrollBackground(
+    defaultHtmlColor,
+    scrolledHtmlColor,
+    ulInitialColor,
+    ulScrolledColor
+  );
 
   return (
     <html
       lang="en"
       className={`${pretendard.variable} ${GeistSans.variable} ${GeistMono.variable} transition-colors duration-500`}
       suppressHydrationWarning
-      style={{
-        backgroundColor: bgColor,
-      }}
     >
       {children}
     </html>
