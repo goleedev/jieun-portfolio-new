@@ -45,7 +45,7 @@ export default function Footer() {
           </div>
         </section>
 
-        <p className="w-full pb-4 text-center font-pretendard text-lg leading-6 text-[#949494]">
+        <p className="w-full pb-4 text-center font-pretendard leading-6 text-[#949494]">
           © {currentYear} JieunJang . All rights reserved.
         </p>
       </footer>
