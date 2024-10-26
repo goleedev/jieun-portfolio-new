@@ -31,7 +31,7 @@ export default function HomePage() {
       const newImage: CursorImage = {
         id: imageId++,
         imageIndex: Math.floor(Math.random() * 10),
-        size: 80 + Math.floor(Math.random() * (250 - 80)),
+        size: 100 + Math.floor(Math.random() * (350 - 100)),
         x: e.clientX,
         y: e.clientY,
       };
