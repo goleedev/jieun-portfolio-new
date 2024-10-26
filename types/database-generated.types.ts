@@ -12,21 +12,27 @@ export type Database = {
       guestbook: {
         Row: {
           created_at: string
+          csrf_token: string | null
           id: number
           ip_address: string
           message: string
+          username: string | null
         }
         Insert: {
           created_at?: string
+          csrf_token?: string | null
           id?: number
           ip_address: string
           message: string
+          username?: string | null
         }
         Update: {
           created_at?: string
+          csrf_token?: string | null
           id?: number
           ip_address?: string
           message?: string
+          username?: string | null
         }
         Relationships: []
       }

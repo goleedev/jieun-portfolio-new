@@ -22,6 +22,7 @@ interface GuestbookEntry {
 export default function GuestbookForm({
   onMessageSubmitted,
 }: GuestbookFormProps) {
+  const [username, setUsername] = useState<string>('');
   const [message, setMessage] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -113,9 +114,18 @@ export default function GuestbookForm({
             onChange={(e) => setMessage(e.target.value)}
             className=" w-full placeholder:text-[#949494] px-6 pt-[72px] h-[272px] pb-7 outline-none rounded-xl resize-none"
           />
+        </div>
+        <div className="flex gap-5 text-sm leading-8 mt-10">
+          <input
+            type="text"
+            placeholder="Your Name"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="w-[442px] tex px-6 py-3 h-11 outline-none rounded-full"
+          />
           <button
             type="submit"
-            className="absolute text-center text-white bottom-7 right-6 w-[108px] h-11 rounded-full bg-black text-sm leading-8 z-10 uppercase"
+            className="text-center text-white w-[108px] h-11 rounded-full bg-black uppercase"
             disabled={isPending}
           >
             {isPending ? 'Sending...' : 'Send'}
