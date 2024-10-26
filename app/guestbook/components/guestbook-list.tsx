@@ -15,7 +15,9 @@ export default function GuestbookList({
     let counter = 1;
 
     messages.forEach((message) => {
-      if (!ipMap[message.ip_address]) {
+      if (message.username) {
+        ipMap[message.ip_address] = message.username;
+      } else if (!ipMap[message.ip_address]) {
         ipMap[message.ip_address] = `Anonymous ${counter
           .toString()
           .padStart(2, '0')}`;

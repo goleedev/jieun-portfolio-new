@@ -14,15 +14,16 @@ interface IpResponse {
 }
 
 interface GuestbookEntry {
+  username: string | null;
   message: string;
   ip_address: string;
-  csrf_token: string;
+  csrf_token: string | null;
 }
 
 export default function GuestbookForm({
   onMessageSubmitted,
 }: GuestbookFormProps) {
-  const [username, setUsername] = useState<string>('');
+  const [username, setUsername] = useState<string | null>(null);
   const [message, setMessage] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
@@ -77,6 +78,7 @@ export default function GuestbookForm({
         const sanitizedMessage = DOMPurify.sanitize(message);
 
         const entry: GuestbookEntry = {
+          username,
           message: sanitizedMessage,
           ip_address,
           csrf_token: csrfToken,
@@ -86,6 +88,7 @@ export default function GuestbookForm({
 
         if (error) throw error;
 
+        setUsername(null);
         setMessage('');
         setError(null);
         onMessageSubmitted();
@@ -119,7 +122,7 @@ export default function GuestbookForm({
           <input
             type="text"
             placeholder="Your Name"
-            value={username}
+            value={username || ''}
             onChange={(e) => setUsername(e.target.value)}
             className="w-[442px] tex px-6 py-3 h-11 outline-none rounded-full"
           />
@@ -132,7 +135,7 @@ export default function GuestbookForm({
           </button>
         </div>
       </form>
-      {error && <p className="text-[#f56429] pt-1">{error}</p>}
+      {error && <p className="absolute text-[#f56429] pt-1">{error}</p>}
     </section>
   );
 }
