@@ -1,45 +1,59 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import DOMPurify from 'dompurify';
+import { FormEvent, useEffect, useState, useTransition } from 'react';
 
 import supabase from '@/utils/supabase';
 
+interface GuestbookFormProps {
+  onMessageSubmitted: () => void;
+}
+
+interface IpResponse {
+  ip: string;
+}
+
+interface GuestbookEntry {
+  message: string;
+  ip_address: string;
+  csrf_token: string;
+}
+
 export default function GuestbookForm({
   onMessageSubmitted,
-}: {
-  onMessageSubmitted: () => void;
-}) {
+}: GuestbookFormProps) {
   const [message, setMessage] = useState<string>('');
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
 
-  const fetchIpAddress = async () => {
+  useEffect(() => {
+    const existingToken = sessionStorage.getItem('csrfToken');
+    if (!existingToken) {
+      const generatedToken = `csrf_${Math.random().toString(36).substring(2)}`;
+      sessionStorage.setItem('csrfToken', generatedToken);
+      console.log('CSRF token set:', generatedToken);
+    } else {
+      console.log('CSRF token exists:', existingToken);
+    }
+  }, []);
+
+  const fetchIpAddress = async (): Promise<string | null> => {
     try {
       const ipRes = await fetch('/api/get-ip');
-      if (!ipRes.ok) {
-        throw new Error('Failed to fetch IP address');
-      }
-
-      const data = await ipRes.json();
+      if (!ipRes.ok) throw new Error('Failed to fetch IP address');
+      const data: IpResponse = await ipRes.json();
       return data.ip;
-    } catch (err: unknown) {
-      if (err instanceof Error) {
-        console.error('Error fetching IP address:', err.message);
-        return null;
-      }
-      console.error('Unexpected error fetching IP address.');
+    } catch (err) {
+      console.error('Error fetching IP address:', err);
       return null;
     }
   };
 
-  const handleSubmit = async (event: React.FormEvent) => {
+  const handleSubmit = async (event: FormEvent): Promise<void> => {
     event.preventDefault();
-
     if (!message) {
       setError('Message cannot be empty');
-      setTimeout(() => {
-        setError(null);
-      }, 3000);
+      setTimeout(() => setError(null), 3000);
       return;
     }
 
@@ -48,39 +62,37 @@ export default function GuestbookForm({
         const ip_address = await fetchIpAddress();
         if (!ip_address) {
           setError('Could not retrieve IP address');
-          setTimeout(() => {
-            setError(null);
-          }, 3000);
+          setTimeout(() => setError(null), 3000);
           return;
         }
 
-        const { error } = await supabase.from('guestbook').insert([
-          {
-            message,
-            ip_address,
-          },
-        ]);
+        const csrfToken = sessionStorage.getItem('csrfToken');
+        if (!csrfToken) {
+          setError('CSRF token missing');
+          console.error('CSRF token missing from sessionStorage');
+          return;
+        }
+
+        const sanitizedMessage = DOMPurify.sanitize(message);
+
+        const entry: GuestbookEntry = {
+          message: sanitizedMessage,
+          ip_address,
+          csrf_token: csrfToken,
+        };
+
+        const { error } = await supabase.from('guestbook').insert([entry]);
 
         if (error) throw error;
 
         setMessage('');
         setError(null);
-
-        if (onMessageSubmitted) {
-          onMessageSubmitted();
-        }
-      } catch (err: unknown) {
-        if (err instanceof Error) {
-          setError(err.message || 'Failed to submit message');
-        } else {
-          setError(
-            'Too many submissions from the same IP address. Please wait a while before trying again.'
-          );
-        }
-
-        setTimeout(() => {
-          setError(null);
-        }, 3000);
+        onMessageSubmitted();
+      } catch (err) {
+        const errorMessage =
+          err instanceof Error ? err.message : 'Failed to submit message';
+        setError(errorMessage);
+        setTimeout(() => setError(null), 3000);
       }
     });
   };
@@ -110,7 +122,6 @@ export default function GuestbookForm({
           </button>
         </div>
       </form>
-
       {error && <p className="text-[#f56429] pt-1">{error}</p>}
     </section>
   );
