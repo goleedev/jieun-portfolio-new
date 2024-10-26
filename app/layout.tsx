@@ -30,7 +30,7 @@ export default function RootLayout({
     <DynamicBackground>
       <body>
         <MenuProvider>
-          <main className="flex flex-col w-full h-full px-6">
+          <main className="flex flex-col w-full h-full px-6 tracking-tight">
             <Header />
             {children}
             <Footer />
