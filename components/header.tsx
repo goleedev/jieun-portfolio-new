@@ -71,7 +71,7 @@ export default function Header() {
           'flex justify-between md:justify-normal items-center h-10 md:h-auto'
         }
       >
-        <Link href="/" className="flex-shrink-0">
+        <Link href="/" className="flex-shrink-0 z-[100]">
           <Image
             src={isMenuOpen ? '/images/logo-inverted.png' : '/images/logo.png'}
             alt="Logo"
