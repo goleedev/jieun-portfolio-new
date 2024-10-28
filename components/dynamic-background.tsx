@@ -1,13 +1,16 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import { ReactNode } from 'react';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
 import localFont from 'next/font/local';
+import { usePathname } from 'next/navigation';
+import { ReactNode, useEffect, useState } from 'react';
 
-import { getBackgroundColor } from '@/utils/get-background-color';
 import useScrollBackground from '@/hooks/use-scroll-background';
+import {
+  getBackgroundClass,
+  getBackgroundColor,
+} from '@/utils/get-background-color';
 
 const pretendard = localFont({
   src: '../app/fonts/PretendardVariable.ttf',
@@ -21,14 +24,18 @@ export default function DynamicBackground({
   children: ReactNode;
 }) {
   const pathname = usePathname();
-  const defaultHtmlColor = getBackgroundColor(pathname);
+  const [bgClass, setBgClass] = useState(getBackgroundClass(pathname));
+
+  useEffect(() => {
+    setBgClass(getBackgroundClass(pathname));
+  }, [pathname]);
 
   const scrolledHtmlColor = '#EFEFEF';
   const ulInitialColor = 'transparent';
   const ulScrolledColor = '#FFFFFF';
 
   useScrollBackground(
-    defaultHtmlColor,
+    getBackgroundColor(pathname),
     scrolledHtmlColor,
     ulInitialColor,
     ulScrolledColor
@@ -36,8 +43,8 @@ export default function DynamicBackground({
 
   return (
     <html
-      lang="en"
-      className={`${pretendard.variable} ${GeistSans.variable} ${GeistMono.variable} transition-colors duration-500`}
+      lang="ko"
+      className={`${pretendard.variable} ${GeistSans.variable} ${GeistMono.variable} ${bgClass} transition-colors duration-500`}
       suppressHydrationWarning
     >
       {children}

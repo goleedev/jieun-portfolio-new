@@ -9,3 +9,27 @@ html {
 ::selection {
   @apply bg-transparent;
 }
+
+.bg-home {
+  background-color: #bcbdfd;
+}
+
+.bg-work {
+  background-color: #efefef;
+}
+
+.bg-guestbook {
+  background-color: #46d18f;
+}
+
+.bg-resume {
+  background-color: #c3d7f8;
+}
+
+.bg-blog {
+  background-color: #efefef;
+}
+
+html {
+  transition: background-color 0.5s ease;
+}

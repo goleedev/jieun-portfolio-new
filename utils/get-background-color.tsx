@@ -14,3 +14,20 @@ export function getBackgroundColor(pathname: string): string {
       return '#EFEFEF';
   }
 }
+
+export function getBackgroundClass(pathname: string): string {
+  switch (pathname) {
+    case '/':
+      return 'bg-home';
+    case '/work':
+      return 'bg-work';
+    case '/guestbook':
+      return 'bg-guestbook';
+    case '/resume':
+      return 'bg-resume';
+    case '/blog':
+      return 'bg-blog';
+    default:
+      return 'bg-work';
+  }
+}
