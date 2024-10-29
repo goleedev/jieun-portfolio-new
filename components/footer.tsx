@@ -16,8 +16,9 @@ export default function Footer() {
 
   if (pathname === '/') {
     return (
-      <footer className="font-medium text-center font-pretendard text-lg leading-6 pb-6">
-        Creating diverse works through UI/UX design and visual identity.
+      <footer className="sm:flex-row justify-center items-center flex flex-col sm:font-medium text-center font-pretendard text-sm sm:text-lg leading-5 sm:leading-6 pb-5 sm:pb-6">
+        <span>Creating diverse works</span>
+        <span>through UI/UX design and visual identity.</span>
       </footer>
     );
   }
@@ -53,7 +54,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="w-full text-center font-pretendard text-lg leading-6 text-[#949494]">
+    <footer className="w-full text-center font-pretendard leading-6 text-[#949494]">
       © {currentYear} JieunJang . All rights reserved.
     </footer>
   );
