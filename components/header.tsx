@@ -29,7 +29,9 @@ const NavLink = ({
       isActive && 'md:text-white md:bg-black md:rounded-full'
     )}
   >
-    <p className={cn('text-center', !isLast && 'pb-12')}>{title}</p>
+    <p className={cn('text-center', (isActive || !isLast) && 'pb-12')}>
+      {title}
+    </p>
   </Link>
 );
 
