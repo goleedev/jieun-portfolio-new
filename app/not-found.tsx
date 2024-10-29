@@ -8,7 +8,7 @@ export default function NotFound() {
       <section className="w-full flex items-center justify-center text-center font-mono font-black tracking-tighter leading-none cursor-default">
         <TextLine>
           <span>4</span>
-          <ImageComponent src="/gifs/0.gif" alt="0 gif" className="-mx-12" />
+          <ImageComponent src="/gifs/0.gif" alt="0 gif" />
           <span>4</span>
         </TextLine>
       </section>
