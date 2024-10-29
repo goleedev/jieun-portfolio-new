@@ -4,21 +4,16 @@ import Image from 'next/image';
 interface ImageComponentProps {
   src: string;
   alt: string;
-  className?: string;
 }
 
-export function ImageComponent({
-  src,
-  alt,
-  className,
-}: ImageComponentProps): JSX.Element {
+export function ImageComponent({ src, alt }: ImageComponentProps): JSX.Element {
   return (
     <Image
       src={src}
       alt={alt}
-      width={200}
-      height={200}
-      className={`p-[22px] h-[205px] ${className ?? ''}`}
+      width={210}
+      height={210}
+      className="image-responsive"
       unoptimized
       loading="eager"
     />
@@ -31,7 +26,7 @@ export function TextLine({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <div className="flex flex-nowrap justify-center items-center text-[205px]">
+    <div className="flex flex-nowrap justify-center items-center text-responsive">
       {children}
     </div>
   );
@@ -42,17 +37,17 @@ function HomeContent(): JSX.Element {
     <section className="w-full min-h-[calc(100vh-128px)] flex flex-col items-center justify-center text-center font-mono font-black tracking-tighter leading-none overflow-auto cursor-default">
       <div className="flex flex-col items-center">
         <TextLine>
-          <span>D</span>
-          <ImageComponent src="/gifs/E.gif" alt="E gif" className="-mx-12" />
+          <span className="md:pl-0 pl-1">D</span>
+          <ImageComponent src="/gifs/E.gif" alt="E gif" />
           <span>LIGH</span>
-          <ImageComponent src="/gifs/T.gif" alt="T gif" className="-mx-12" />
-          <span className="ml-8">IN</span>
+          <ImageComponent src="/gifs/T.gif" alt="T gif" />
+          <span className="sm:pl-6 md:pl-3.5 pl-1.5">IN</span>
         </TextLine>
         <TextLine>
           <span>DE</span>
-          <ImageComponent src="/gifs/S.gif" alt="S gif" className="-mx-12" />
+          <ImageComponent src="/gifs/S.gif" alt="S gif" />
           <span>IG</span>
-          <ImageComponent src="/gifs/N.gif" alt="N gif" className="-mx-9" />
+          <ImageComponent src="/gifs/N.gif" alt="N gif" />
         </TextLine>
       </div>
     </section>

@@ -33,3 +33,69 @@ html {
 html {
   transition: background-color 0.5s ease;
 }
+
+.text-responsive {
+  font-size: clamp(60px, 10vw + 45px, 205px);
+}
+
+.image-responsive {
+  width: clamp(60px, 10vw + 45px, 205px);
+  height: clamp(60px, 10vw + 45px, 205px);
+  padding: clamp(6px, 1.5vw, 22px);
+  margin-inline: clamp(-32px, calc(-3vw - 1rem), -48px);
+}
+
+@media (max-width: 700px) {
+  .text-responsive {
+    font-size: clamp(60px, 10vw + 40px, 100px);
+  }
+  .image-responsive {
+    width: clamp(60px, 10vw + 40px, 100px);
+    height: clamp(60px, 10vw + 40px, 100px);
+    margin-inline: clamp(-28px, calc(-2.5vw - 1rem), -40px);
+  }
+}
+
+@media (max-width: 600px) {
+  .text-responsive {
+    font-size: clamp(60px, 10vw + 35px, 100px);
+  }
+  .image-responsive {
+    width: clamp(60px, 10vw + 35px, 90px);
+    height: clamp(60px, 10vw + 35px, 90px);
+    margin-inline: clamp(-24px, calc(-2vw - 0.8rem), -36px);
+  }
+}
+
+@media (max-width: 500px) {
+  .text-responsive {
+    font-size: clamp(60px, 10vw + 30px, 100px);
+  }
+  .image-responsive {
+    width: clamp(60px, 10vw + 30px, 85px);
+    height: clamp(60px, 10vw + 30px, 85px);
+    margin-inline: clamp(-20px, calc(-1.5vw - 0.6rem), -32px);
+  }
+}
+
+@media (max-width: 400px) {
+  .text-responsive {
+    font-size: clamp(60px, 10vw + 25px, 80px);
+  }
+  .image-responsive {
+    width: clamp(60px, 10vw + 25px, 80px);
+    height: clamp(60px, 10vw + 25px, 80px);
+    margin-inline: clamp(-16px, calc(-1.2vw - 0.4rem), -28px);
+  }
+}
+
+@media (max-width: 350px) {
+  .text-responsive {
+    font-size: clamp(60px, 10vw + 23px, 70px);
+  }
+  .image-responsive {
+    width: clamp(60px, 10vw + 23px, 70px);
+    height: clamp(60px, 10vw + 23px, 70px);
+    margin-inline: clamp(-14px, calc(-1vw - 0.3rem), -24px);
+  }
+}
