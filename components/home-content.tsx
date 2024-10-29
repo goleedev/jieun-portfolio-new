@@ -1,5 +1,8 @@
+'use client';
+
 import React from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 interface ImageComponentProps {
   src: string;
@@ -33,6 +36,8 @@ export function TextLine({
 }
 
 function HomeContent(): JSX.Element {
+  const pathname = usePathname();
+
   return (
     <section className="w-full min-h-[calc(100vh-128px)] flex flex-col items-center justify-center text-center font-mono font-black tracking-tighter leading-none overflow-auto cursor-default">
       <div className="flex flex-col items-center">
@@ -45,7 +50,10 @@ function HomeContent(): JSX.Element {
         </TextLine>
         <TextLine>
           <span>DE</span>
-          <ImageComponent src="/gifs/S.gif" alt="S gif" />
+          <ImageComponent
+            src={pathname === '/resume' ? '/gifs/S-blue.gif' : '/gifs/S.gif'}
+            alt="S gif"
+          />
           <span>IG</span>
           <ImageComponent src="/gifs/N.gif" alt="N gif" />
         </TextLine>
