@@ -41,7 +41,7 @@ function HomeContent(): JSX.Element {
           <ImageComponent src="/gifs/E.gif" alt="E gif" />
           <span>LIGH</span>
           <ImageComponent src="/gifs/T.gif" alt="T gif" />
-          <span className="sm:pl-6 md:pl-3.5 pl-1.5">IN</span>
+          <span className="sm:pl-3.5 md:pl-6 pl-1.5">IN</span>
         </TextLine>
         <TextLine>
           <span>DE</span>

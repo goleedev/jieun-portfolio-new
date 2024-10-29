@@ -6,19 +6,15 @@ function HomeContent(): JSX.Element {
       <div className="flex flex-col items-center">
         <TextLine>
           <span>L</span>
-          <ImageComponent src="/gifs/E.gif" alt="E gif" className="-mx-12" />
+          <ImageComponent src="/gifs/E.gif" alt="E gif" />
           <span>AVE</span>
-          <span className="ml-12">A</span>
+          <span className="sm:pl-6 md:pl-12 pl-3">A</span>
         </TextLine>
         <TextLine>
           <span>MES</span>
-          <ImageComponent
-            src="/gifs/S-green.gif"
-            alt="S gif"
-            className="-mx-12"
-          />
+          <ImageComponent src="/gifs/S-green.gif" alt="S gif" />
           <span>AG</span>
-          <ImageComponent src="/gifs/E.gif" alt="E gif" className="-mx-9" />
+          <ImageComponent src="/gifs/E.gif" alt="E gif" />
         </TextLine>
       </div>
     </section>
