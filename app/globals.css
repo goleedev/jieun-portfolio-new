@@ -37,12 +37,30 @@ html {
 .text-responsive {
   font-size: clamp(60px, 10vw + 45px, 205px);
 }
-
 .image-responsive {
   width: clamp(60px, 10vw + 45px, 205px);
   height: clamp(60px, 10vw + 45px, 205px);
   padding: clamp(6px, 1.5vw, 22px);
   margin-inline: clamp(-32px, calc(-3vw - 1rem), -48px);
+}
+
+.moon-responsive {
+  top: 12vh;
+  left: 33vw;
+  width: clamp(130px, 20vw, 272px);
+  height: clamp(130px, 20vw, 272px);
+}
+.pencil-responsive {
+  left: 2vw;
+  bottom: 35%;
+  width: clamp(211px, 30vw, 460px);
+  height: clamp(19px, 2.8vw, 43px);
+}
+.gameboy-responsive {
+  right: 5vw;
+  bottom: 10vh;
+  width: clamp(136px, 20vw, 324px);
+  height: clamp(164px, 24vw, 391px);
 }
 
 @media (max-width: 700px) {
@@ -53,6 +71,24 @@ html {
     width: clamp(60px, 10vw + 40px, 100px);
     height: clamp(60px, 10vw + 40px, 100px);
     margin-inline: clamp(-28px, calc(-2.5vw - 1rem), -40px);
+  }
+  .moon-responsive {
+    top: 15vh;
+    left: 38vw;
+    width: clamp(120px, 18vw, 250px);
+    height: clamp(120px, 18vw, 250px);
+  }
+  .pencil-responsive {
+    left: 3vw;
+    bottom: 40%;
+    width: clamp(190px, 28vw, 420px);
+    height: clamp(18px, 2.5vw, 40px);
+  }
+  .gameboy-responsive {
+    right: 8vw;
+    bottom: 12vh;
+    width: clamp(130px, 18vw, 300px);
+    height: clamp(160px, 22vw, 370px);
   }
 }
 
@@ -65,6 +101,24 @@ html {
     height: clamp(60px, 10vw + 35px, 90px);
     margin-inline: clamp(-24px, calc(-2vw - 0.8rem), -36px);
   }
+  .moon-responsive {
+    top: 17vh;
+    left: 42vw;
+    width: clamp(110px, 16vw, 230px);
+    height: clamp(110px, 16vw, 230px);
+  }
+  .pencil-responsive {
+    left: 4vw;
+    bottom: 45%;
+    width: clamp(180px, 26vw, 380px);
+    height: clamp(17px, 2.3vw, 37px);
+  }
+  .gameboy-responsive {
+    right: 12vw;
+    bottom: 15vh;
+    width: clamp(120px, 16vw, 280px);
+    height: clamp(150px, 20vw, 340px);
+  }
 }
 
 @media (max-width: 500px) {
@@ -76,20 +130,27 @@ html {
     height: clamp(60px, 10vw + 30px, 85px);
     margin-inline: clamp(-20px, calc(-1.5vw - 0.6rem), -32px);
   }
+  .moon-responsive {
+    top: 18vh;
+    left: 46vw;
+    width: clamp(100px, 14vw, 210px);
+    height: clamp(100px, 14vw, 210px);
+  }
+  .pencil-responsive {
+    left: 4vw;
+    bottom: 50%;
+    width: clamp(170px, 24vw, 350px);
+    height: clamp(16px, 2vw, 34px);
+  }
+  .gameboy-responsive {
+    right: 20vw;
+    bottom: 18vh;
+    width: clamp(110px, 15vw, 260px);
+    height: clamp(140px, 19vw, 320px);
+  }
 }
 
 @media (max-width: 400px) {
-  .text-responsive {
-    font-size: clamp(60px, 10vw + 25px, 80px);
-  }
-  .image-responsive {
-    width: clamp(60px, 10vw + 25px, 80px);
-    height: clamp(60px, 10vw + 25px, 80px);
-    margin-inline: clamp(-16px, calc(-1.2vw - 0.4rem), -28px);
-  }
-}
-
-@media (max-width: 350px) {
   .text-responsive {
     font-size: clamp(60px, 10vw + 23px, 70px);
   }
@@ -97,5 +158,17 @@ html {
     width: clamp(60px, 10vw + 23px, 70px);
     height: clamp(60px, 10vw + 23px, 70px);
     margin-inline: clamp(-14px, calc(-1vw - 0.3rem), -24px);
+  }
+  .moon-responsive {
+    top: 20vh;
+    left: 50vw;
+  }
+  .pencil-responsive {
+    left: 5vw;
+    bottom: 53vh;
+  }
+  .gameboy-responsive {
+    right: 28vw;
+    bottom: 22vh;
   }
 }
