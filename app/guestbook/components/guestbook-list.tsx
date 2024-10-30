@@ -33,8 +33,8 @@ export default function GuestbookList({
   }
 
   return (
-    <section className="px-5 pb-[130px]">
-      <h2 className="text-[44px] pb-10 leading-[52px]">
+    <section className="px-0 sm:px-5 pb-[100px] sm:pb-[130px]">
+      <h2 className="text-[28px] sm:text-[44px] pb-6 sm:pb-10 leading-[52px]">
         ALL <span className="font-semibold">{messages.length}</span>
       </h2>
       {messages.map((message) => {
@@ -43,15 +43,15 @@ export default function GuestbookList({
         return (
           <div
             key={message.id}
-            className="flex flex-col border-b mb-5 border-[#CCC]"
+            className="flex flex-col border-b last:border-none mb-4 sm:mb-5 border-[#CCC]"
           >
-            <span className="bg-white px-3.5 uppercase rounded-full text-sm leading-8 w-fit h-8 text-center">
+            <span className="bg-white px-3 sm:px-3.5 uppercase rounded-full text-xs sm:text-sm leading-[22px] sm:leading-8 w-fit h-[22px] sm:h-8 text-center">
               {anonymousTag}
             </span>
-            <p className="text-lg pt-3 leading-[30px] pb-2">
+            <p className="text-sm sm:text-lg pt-2 sm:pt-3 leading-[30px] pb-1 sm:pb-2">
               {message.message}
             </p>
-            <p className="text-[#949494] text-sm leading-5 pb-5">
+            <p className="text-[#949494] text-[12px] sm:text-sm leading-[18px] sm:leading-5 pb-4 sm:pb-5">
               {moment(message.created_at).tz('Asia/Seoul').format('YYYY/MM/DD')}
             </p>
           </div>
