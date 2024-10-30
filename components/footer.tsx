@@ -26,8 +26,8 @@ export default function Footer() {
   if (existingPaths) {
     return (
       <footer className="border-t border-[#CCC] pt-6">
-        <section className="text-lg leading-6 font-medium pb-40 grid grid-cols-2">
-          <p>Delight In Design</p>
+        <section className="text-sm md:text-lg leading-5 md:leading-6 md:font-medium pb-10 md:pb-40 flex flex-col md:grid md:grid-cols-2">
+          <p className="pb-[60px] md:pb-0">Delight In Design</p>
 
           <div className="grid grid-cols-3">
             <div className="flex flex-col gap-1">

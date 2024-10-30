@@ -102,10 +102,10 @@ export default function GuestbookForm({
   };
 
   return (
-    <section className="py-20 pb-[60px] sm:pb-20 px-0 sm:px-5">
+    <section className="py-20 pb-[60px] md:pb-20 px-0 md:px-5">
       <form onSubmit={handleSubmit} className="flex flex-col text-lg">
-        <div className="relative h-[190px] sm:h-[272px]">
-          <span className="absolute text-center top-7 flex items-center justify-center left-6 w-[69px] sm:w-[90px] h-[22px] sm:h-8 rounded-full bg-[#F1F1ED] text-xs sm:text-sm leading-[22px] sm:leading-8 z-10">
+        <div className="relative h-[190px] md:h-[272px]">
+          <span className="absolute text-center top-7 flex items-center justify-center left-6 w-[69px] md:w-[90px] h-[22px] md:h-8 rounded-full bg-[#F1F1ED] text-xs md:text-sm leading-[22px] md:leading-8 z-10">
             MESSAGE
           </span>
           <label htmlFor="message" />
@@ -115,20 +115,20 @@ export default function GuestbookForm({
             maxLength={300}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full placeholder:text-[#949494] text-sm sm:text-lg px-6 pt-[54px] sm:pt-[72px] h-[190px] sm:h-[272px] pb-5 sm:pb-7 outline-none rounded-xl resize-none"
+            className="w-full placeholder:text-[#949494] text-sm md:text-lg px-6 pt-[54px] md:pt-[72px] h-[190px] md:h-[272px] pb-5 md:pb-7 outline-none rounded-xl resize-none"
           />
         </div>
-        <div className="flex flex-wrap gap-4 sm:gap-5 text-[12px] sm:text-sm leading-8 mt-6 sm:mt-10">
+        <div className="flex flex-wrap gap-4 md:gap-5 text-[12px] md:text-sm leading-8 mt-6 md:mt-10">
           <input
             type="text"
             placeholder="Your Name"
             value={username || ''}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-[calc(80%-16px)] sm:w-[442px] tex px-6 py-3 h-10 sm:h-11 outline-none rounded-full"
+            className="w-[calc(80%-16px)] md:w-[442px] tex px-6 py-3 h-10 md:h-11 outline-none rounded-full"
           />
           <button
             type="submit"
-            className="w-[20%] text-center text-white sm:w-[108px] h-10 sm:h-11 rounded-full bg-black uppercase"
+            className="w-[20%] text-center text-white md:w-[108px] h-10 md:h-11 rounded-full bg-black uppercase"
             disabled={isPending}
           >
             {isPending ? 'Sending...' : 'Send'}
