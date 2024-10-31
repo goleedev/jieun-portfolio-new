@@ -10,7 +10,7 @@ export default function ResumePage() {
         alt="smile"
         width={300}
         height={300}
-        className="w-[280px] h-[280px] -rotate-[15deg] absolute top-[117px] left-10 -z-10"
+        className="-rotate-[15deg] absolute -z-10 smile-responsive"
         unoptimized
       />
       <Image
@@ -18,7 +18,7 @@ export default function ResumePage() {
         alt="clip"
         width={400}
         height={200}
-        className="w-[370px] h-[196px] rotate-[15deg] absolute top-[64px] right-11"
+        className="rotate-[15deg] absolute clip-responsive md:-z-1"
         unoptimized
       />
       <HomeContent />
@@ -27,12 +27,13 @@ export default function ResumePage() {
         alt="earphone"
         width={250}
         height={350}
-        className="w-[248px] h-[332px] absolute bottom-2.5 inset-x-[calc(50%-124px)]"
+        className="absolute earphone-responsive"
         unoptimized
       />
 
-      <p className="text-lg font-medium leading-6 text-center pt-20 pb-[104px]">
-        Creating diverse works through UI/UX design and visual identity.
+      <p className="w-full flex flex-col items-center md:whitespace-nowrap lg:flex-row md:pb-6 pb-5 md:text-lg md:font-medium font-normal text-sm leading-5 md:leading-6 text-center justify-center">
+        <span>Creating diverse works</span>
+        <span>through UI/UX design and visual identity.</span>
       </p>
     </>
   );
