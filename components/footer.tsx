@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
         </section>
 
-        <p className="w-full pb-4 text-center font-pretendard leading-6 text-[#949494]">
+        <p className="w-full pb-4 text-center font-pretendard text-xs md:text-base leading-[18px] md:leading-6 text-[#949494]">
           © {currentYear} JieunJang . All rights reserved.
         </p>
       </footer>
@@ -54,7 +54,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="w-full text-center font-pretendard leading-6 text-[#949494]">
+    <footer className="w-full text-center font-pretendard text-xs md:text-base leading-[18px] md:leading-6 text-[#949494]">
       © {currentYear} JieunJang . All rights reserved.
     </footer>
   );

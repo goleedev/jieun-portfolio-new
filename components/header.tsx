@@ -42,6 +42,8 @@ const navItems = [
   { title: 'Guestbook', href: '/guestbook' },
 ];
 
+const currentYear = new Date().getFullYear();
+
 export default function Header() {
   const { isMenuOpen, toggleMenu } = useMenu();
   const pathname = usePathname();
@@ -108,6 +110,9 @@ export default function Header() {
             <div className="flex flex-col items-center justify-center relative min-h-dvh">
               <ul className="text-[#BCBDFD]">{navLinks}</ul>
             </div>
+            <p className="w-full absolute bottom-5 text-center font-pretendard text-xs leading-[18px] text-[#949494] z-[100]">
+              © {currentYear} JieunJang . All rights reserved.
+            </p>
           </nav>
         )}
       </>
