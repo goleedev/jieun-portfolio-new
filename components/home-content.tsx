@@ -40,7 +40,7 @@ function HomeContent(): JSX.Element {
 
   return (
     <section className="w-full min-h-[calc(100vh-128px)] flex flex-col items-center justify-center text-center font-mono font-black tracking-tighter leading-none overflow-auto cursor-default">
-      <div className="flex flex-col items-center">
+      <div className="hidden sm:flex flex-col items-center">
         <TextLine>
           <span className="md:pl-0 pl-1">D</span>
           <ImageComponent src="/gifs/E.gif" alt="E gif" />
@@ -50,6 +50,25 @@ function HomeContent(): JSX.Element {
         </TextLine>
         <TextLine>
           <span>DE</span>
+          <ImageComponent
+            src={pathname === '/resume' ? '/gifs/S-blue.gif' : '/gifs/S.gif'}
+            alt="S gif"
+          />
+          <span>IG</span>
+          <ImageComponent src="/gifs/N.gif" alt="N gif" />
+        </TextLine>
+      </div>
+
+      <div className="sm:hidden flex flex-col items-center">
+        <TextLine>
+          <span className="md:pl-0 pl-1">D</span>
+          <ImageComponent src="/gifs/E.gif" alt="E gif" />
+          <span>LIGH</span>
+          <ImageComponent src="/gifs/T.gif" alt="T gif" />
+        </TextLine>
+        <TextLine>
+          <span>IN</span>
+          <span className="ml-3">DE</span>
           <ImageComponent
             src={pathname === '/resume' ? '/gifs/S-blue.gif' : '/gifs/S.gif'}
             alt="S gif"
