@@ -1,5 +1,6 @@
 'use client';
 
+import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -68,13 +69,10 @@ export default function Header() {
       )),
     [pathname, isMenuOpen]
   );
+
   return (
     <header className="w-full py-4 h-20 z-[100]">
-      <div
-        className={
-          'flex justify-between md:justify-normal items-center h-10 md:h-auto'
-        }
-      >
+      <div className="flex justify-between md:justify-normal items-center h-10 md:h-auto">
         <Link href="/" className="flex-shrink-0 z-[100]">
           <Image
             src={isMenuOpen ? '/images/logo-inverted.png' : '/images/logo.png'}
@@ -104,18 +102,24 @@ export default function Header() {
         </button>
       </div>
 
-      <>
+      <AnimatePresence>
         {isMenuOpen && (
-          <nav className="md:hidden fixed min-h-dvh inset-x-0 top-0 left-0 bg-[#222] z-30">
+          <motion.nav
+            initial={{ opacity: 0, y: -80 }}
+            animate={{ opacity: 1, y: 0.4 }}
+            exit={{ opacity: 0, y: -80 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="md:hidden fixed min-h-dvh inset-x-0 top-0 left-0 bg-[#222] z-30"
+          >
             <div className="flex flex-col items-center justify-center relative min-h-dvh">
               <ul className="text-[#BCBDFD]">{navLinks}</ul>
             </div>
             <p className="w-full absolute bottom-5 text-center font-pretendard text-xs leading-[18px] text-[#949494] z-[100]">
               © {currentYear} JieunJang . All rights reserved.
             </p>
-          </nav>
+          </motion.nav>
         )}
-      </>
+      </AnimatePresence>
     </header>
   );
 }
