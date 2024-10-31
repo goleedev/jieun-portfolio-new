@@ -63,6 +63,25 @@ html {
   height: clamp(164px, 24vw, 391px);
 }
 
+.smile-responsive {
+  width: clamp(130px, 10vw + 130px, 280px);
+  height: clamp(130px, 10vw + 130px, 280px);
+  left: clamp(5vw, 7vw, 8vw);
+  top: clamp(10vh, 12.5vh, 15vh);
+}
+.clip-responsive {
+  width: clamp(150px, 10vw + 200px, 370px);
+  height: clamp(80px, 4vw + 100px, 196px);
+  right: clamp(2vw, 3.5vw, 5vw);
+  top: 15vh;
+}
+.earphone-responsive {
+  width: 247px;
+  height: 332px;
+  left: 48vw;
+  bottom: 5vh;
+}
+
 @media (max-width: 700px) {
   .text-responsive {
     font-size: clamp(60px, 10vw + 40px, 100px);
@@ -89,6 +108,22 @@ html {
     bottom: 12vh;
     width: clamp(130px, 18vw, 300px);
     height: clamp(160px, 22vw, 370px);
+  }
+  .smile-responsive {
+    width: 230px;
+    height: 230px;
+  }
+  .clip-responsive {
+    width: 320px;
+    height: 160px;
+    top: 20vh;
+    right: 4vw;
+  }
+  .earphone-responsive {
+    width: 210px;
+    height: 280px;
+    left: 45vw;
+    bottom: 7vh;
   }
 }
 
@@ -119,6 +154,22 @@ html {
     width: clamp(120px, 16vw, 280px);
     height: clamp(150px, 20vw, 340px);
   }
+  .smile-responsive {
+    width: 180px;
+    height: 180px;
+  }
+  .clip-responsive {
+    width: 260px;
+    height: 130px;
+    top: 25vh;
+    right: 3vw;
+  }
+  .earphone-responsive {
+    width: 180px;
+    height: 240px;
+    left: 42vw;
+    bottom: 7vh;
+  }
 }
 
 @media (max-width: 500px) {
@@ -148,6 +199,22 @@ html {
     width: clamp(110px, 15vw, 260px);
     height: clamp(140px, 19vw, 320px);
   }
+  .smile-responsive {
+    width: 150px;
+    height: 150px;
+  }
+  .clip-responsive {
+    width: 200px;
+    height: 110px;
+    top: 28vh;
+    right: 2.5vw;
+  }
+  .earphone-responsive {
+    width: 150px;
+    height: 200px;
+    left: 38vw;
+    bottom: 8.5vh;
+  }
 }
 
 @media (max-width: 400px) {
@@ -170,5 +237,21 @@ html {
   .gameboy-responsive {
     right: 28vw;
     bottom: 22vh;
+  }
+  .smile-responsive {
+    width: 130px;
+    height: 130px;
+  }
+  .clip-responsive {
+    width: 150px;
+    height: 80px;
+    top: 30vh;
+    right: 2vw;
+  }
+  .earphone-responsive {
+    width: 123px;
+    height: 164px;
+    left: 35vw;
+    bottom: 10vh;
   }
 }
