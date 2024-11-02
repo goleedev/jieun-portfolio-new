@@ -9,39 +9,46 @@ import { useEffect, useMemo } from 'react';
 import { useMenu } from '@/utils/menu-context';
 import { cn } from '@/utils/merge-classes';
 
+interface INavItem {
+  title: string;
+  href: string;
+  description?: string;
+}
+
+const navItems: INavItem[] = [
+  { title: 'Work', href: '/work', description: 'Discover My' },
+  { title: 'Resume', href: '/resume', description: 'View My' },
+  { title: 'Blog', href: '/blog', description: 'Read My' },
+  { title: 'Guestbook', href: '/guestbook', description: 'Sign My' },
+];
+
 const NavLink = ({
   title,
   href,
+  description,
   onClick,
   isActive,
-  isLast,
 }: {
   title: string;
   href: string;
+  description?: string;
   onClick?: () => void;
   isActive: boolean;
-  isLast: boolean;
 }) => (
   <Link
     href={href}
     onClick={onClick}
     className={cn(
-      'group relative font-pretendard text-4xl font-normal transition-all duration-200 md:text-base md:h-10 md:leading-6 md:py-[9px] md:px-3.5 md:hover:text-white md:hover:bg-black md:hover:rounded-full',
+      'group flex flex-col gap-2 md:gap-0 py-4 relative border-b border-[#404040] md:border-none font-pretendard text-[28px] font-normal transition-all duration-200 md:text-base md:h-10 md:leading-6 md:py-[9px] md:px-3.5 md:hover:text-white md:hover:bg-black md:hover:rounded-full',
       isActive && 'md:text-white md:bg-black md:rounded-full'
     )}
   >
-    <p className={cn('text-center', (isActive || !isLast) && 'pb-12')}>
+    <p className="text-xs uppercase visible md:hidden">{description}</p>
+    <p className={cn('text-left md:text-center', isActive && 'text-white')}>
       {title}
     </p>
   </Link>
 );
-
-const navItems = [
-  { title: 'Work', href: '/work' },
-  { title: 'Resume', href: '/resume' },
-  { title: 'Blog', href: '/blog' },
-  { title: 'Guestbook', href: '/guestbook' },
-];
 
 const currentYear = new Date().getFullYear();
 
@@ -51,16 +58,12 @@ export default function Header() {
 
   const navLinks = useMemo(
     () =>
-      navItems.map(({ title, href }, index) => (
+      navItems.map(({ title, href, description }, index) => (
         <NavLink
           key={href}
           title={title}
+          description={description}
           href={href}
-          isLast={
-            index === navItems.length - 1 ||
-            (href === '/' && pathname === '/') ||
-            (href !== '/' && pathname.startsWith(href))
-          }
           isActive={
             href === pathname || (href !== '/' && pathname.startsWith(href))
           }
@@ -122,8 +125,8 @@ export default function Header() {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
             className="md:hidden fixed min-h-dvh inset-x-0 -top-px pb-px left-0 bg-[#222] z-30"
           >
-            <div className="flex flex-col items-center justify-center relative min-h-dvh">
-              <ul className="text-[#BCBDFD]">{navLinks}</ul>
+            <div className="flex flex-col items-start md:items-center justify-center relative pt-[84px] px-4 md:pt-0 md:px-0">
+              <ul className="text-[#949494] w-full">{navLinks}</ul>
             </div>
             <p className="w-full absolute bottom-5 text-center font-pretendard text-xs leading-[18px] text-[#949494] z-[100]">
               © {currentYear} JieunJang . All rights reserved.
