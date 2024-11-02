@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import HomeContent from '@/components/home-content';
 import List from './components/list';
+import MoreCarousel from './components/carousel';
 
 export default function ResumePage() {
   return (
@@ -37,6 +38,7 @@ export default function ResumePage() {
       </p>
 
       <List />
+      <MoreCarousel />
     </>
   );
 }
