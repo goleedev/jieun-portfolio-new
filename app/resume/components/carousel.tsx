@@ -7,7 +7,7 @@ export default function MoreCarousel() {
         And More
       </h2>
 
-      <div className="flex gap-3 sm:gap-5 overflow-x-scroll scrollbar-hide items-start justify-start snap-mandatory snap-x mt-3 mb-5">
+      <div className="flex gap-3 sm:gap-5 overflow-x-scroll scrollbar-hidden items-start justify-start snap-mandatory snap-x mt-3 mb-5">
         <Image
           src="/images/image.png"
           alt="image"
