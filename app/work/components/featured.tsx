@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const ProjectTypes = ({ types }: { types: string[] }) => (
   <p className="flex gap-3">
@@ -19,7 +20,10 @@ const ProjectTypes = ({ types }: { types: string[] }) => (
 export default function Featured() {
   return (
     <div className="flex flex-col gap-10 md:gap-5 md:flex-row pt-10 md:pt-[100px]">
-      <div className="flex-1 flex flex-col gap-6">
+      <Link
+        href="/work/personal-branding"
+        className="flex-1 flex flex-col gap-6"
+      >
         <Image
           src={'/images/image.png'}
           alt="Image"
@@ -41,8 +45,8 @@ export default function Featured() {
             Personal Branding
           </p>
         </div>
-      </div>
-      <div className="flex-1 flex flex-col gap-4 md:gap-6">
+      </Link>
+      <Link href="/work/test" className="flex-1 flex flex-col gap-4 md:gap-6">
         <Image
           src={'/images/image.png'}
           alt="Image"
@@ -64,7 +68,7 @@ export default function Featured() {
             Personal Branding
           </p>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
