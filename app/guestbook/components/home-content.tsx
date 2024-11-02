@@ -19,8 +19,8 @@ function HomeContent(): JSX.Element {
       </div>
 
       <p className="absolute flex flex-col md:whitespace-nowrap lg:flex-row md:bottom-6 bottom-5 md:text-lg md:font-medium font-normal text-sm leading-5 md:leading-6 text-center">
-        <span>After reviewing my projects, feel free to leave</span>
-        <span>any questions or comments in the guestbook.</span>
+        <span>Have thoughts or questions? Leave a note in the guestbook</span>
+        <span>—I’d love to hear from you!</span>
       </p>
     </section>
   );
