@@ -215,7 +215,7 @@ function IndexList({ year, projects }: IIndexList) {
     <div className="flex flex-col border-b border-[#CCC] last:border-none">
       <div className="flex flex-col sm:grid sm:grid-cols-2 border-b border-[#CCC] last:border-none">
         <h3 className="text-4xl leading-[60px] sm:text-[64px] sm:leading-[82px] pt-2">
-          {year}'
+          {year}&apos
         </h3>
         <div className="flex flex-col">
           {projects.map((project, index) => (
