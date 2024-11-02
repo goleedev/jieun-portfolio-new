@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import HomeContent from '@/components/home-content';
+import List from './components/list';
 
 export default function ResumePage() {
   return (
@@ -30,11 +31,12 @@ export default function ResumePage() {
         className="absolute earphone-responsive"
         unoptimized
       />
-
       <p className="w-full flex flex-col items-center md:whitespace-nowrap lg:flex-row md:pb-6 pb-5 md:text-lg md:font-medium font-normal text-sm leading-5 md:leading-6 text-center justify-center">
         <span>Creating diverse works</span>
         <span>through UI/UX design and visual identity.</span>
       </p>
+
+      <List />
     </>
   );
 }
