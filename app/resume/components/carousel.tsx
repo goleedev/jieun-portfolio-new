@@ -27,6 +27,8 @@ export default function MoreCarousel() {
               style={{
                 width: 'clamp(8rem, 20vw, 27.75rem)',
               }}
+              unoptimized
+              priority
             />
           ))}
       </div>
