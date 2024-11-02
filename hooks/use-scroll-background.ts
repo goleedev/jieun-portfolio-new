@@ -29,6 +29,12 @@ const useScrollBackground = (
           ? ulScrolledColor
           : ulInitialColor;
       }
+
+      if (isScrolled && scrolledHtmlColor === '#EFEFEF') {
+        document.documentElement.classList.add('grey-background');
+      } else {
+        document.documentElement.classList.remove('grey-background');
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -37,6 +43,7 @@ const useScrollBackground = (
       window.removeEventListener('scroll', handleScroll);
       document.documentElement.style.backgroundColor = '';
       if (navList) navList.style.backgroundColor = '';
+      document.documentElement.classList.remove('grey-background');
     };
   }, [initialHtmlColor, scrolledHtmlColor, ulInitialColor, ulScrolledColor]);
 };

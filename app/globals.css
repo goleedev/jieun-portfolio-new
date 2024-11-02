@@ -13,6 +13,14 @@
   }
 }
 
+:root {
+  --menu-button-bg: transparent;
+}
+
+.grey-background {
+  --menu-button-bg: white;
+}
+
 html {
   scrollbar-width: none;
 }
@@ -43,6 +51,13 @@ html {
 
 html {
   transition: background-color 0.5s ease;
+}
+
+.menu-button {
+  background-color: var(--menu-button-bg);
+  color: black;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .text-responsive {

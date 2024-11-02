@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { useMenu } from '@/utils/menu-context';
 import { cn } from '@/utils/merge-classes';
@@ -70,6 +70,17 @@ export default function Header() {
     [pathname, isMenuOpen]
   );
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add('overflow-hidden');
+    } else {
+      document.body.classList.remove('overflow-hidden');
+    }
+    return () => {
+      document.body.classList.remove('overflow-hidden');
+    };
+  }, [isMenuOpen]);
+
   return (
     <header className="w-full py-4 h-20 z-[100]">
       <div className="flex justify-between md:justify-normal items-center h-10 md:h-auto">
@@ -92,8 +103,8 @@ export default function Header() {
 
         <button
           className={cn(
-            'md:hidden flex font-mono items-center fixed top-5 right-5 z-[100] w-fit h-10 px-3.5 py-[9px] justify-center',
-            isMenuOpen && 'text-white'
+            'md:hidden flex items-center fixed top-5 right-5 z-[100] w-fit h-10 px-3.5 py-[9px] justify-center',
+            isMenuOpen ? 'text-white' : 'menu-button'
           )}
           onClick={toggleMenu}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
@@ -109,7 +120,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0.4 }}
             exit={{ opacity: 0, y: -80 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden fixed min-h-dvh inset-x-0 top-0 left-0 bg-[#222] z-30"
+            className="md:hidden fixed min-h-dvh inset-x-0 -top-px pb-px left-0 bg-[#222] z-30"
           >
             <div className="flex flex-col items-center justify-center relative min-h-dvh">
               <ul className="text-[#BCBDFD]">{navLinks}</ul>
