@@ -58,7 +58,7 @@ export default function Header() {
 
   const navLinks = useMemo(
     () =>
-      navItems.map(({ title, href, description }, index) => (
+      navItems.map(({ title, href, description }) => (
         <NavLink
           key={href}
           title={title}
