@@ -238,7 +238,10 @@ function IndexList({ year, projects }: IIndexList) {
               </div>
               <p className="flex gap-3">
                 {project.types.map((type) => (
-                  <span className="rounded-full bg-white text-sm uppercase px-3.5 py-1.5 font-normal">
+                  <span
+                    key={type}
+                    className="rounded-full bg-white text-sm uppercase px-3.5 py-1.5 font-normal"
+                  >
                     {type}
                   </span>
                 ))}
