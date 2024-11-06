@@ -110,6 +110,7 @@ export default function Header() {
             isMenuOpen ? 'text-white' : 'menu-button'
           )}
           onClick={toggleMenu}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >
           {isMenuOpen ? 'Close' : 'Menu'}
         </button>

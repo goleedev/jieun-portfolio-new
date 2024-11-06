@@ -4,8 +4,8 @@ export default function Header() {
       <div className="md:w-2/3">
         <h1
           style={{
-            fontSize: 'clamp(2.75rem, 4vw + 1rem, 5rem)', // Responsive font size for h1
-            lineHeight: 'clamp(2.5rem, 4vw + 1rem, 4.5rem)', // Responsive line height for h1
+            fontSize: 'clamp(2.75rem, 4vw + 1rem, 5rem)',
+            lineHeight: 'clamp(2.5rem, 4vw + 1rem, 4.5rem)',
           }}
           className="font-mono font-semibold"
         >
@@ -15,12 +15,12 @@ export default function Header() {
       <div className="md:w-1/3">
         <p
           style={{
-            fontSize: 'clamp(0.875rem, 1vw + 0.5rem, 1.125rem)', // Responsive font size for p
-            lineHeight: 'clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem)', // Responsive line height for p
+            fontSize: 'clamp(0.875rem, 1vw + 0.5rem, 1.125rem)',
+            lineHeight: 'clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem)',
           }}
         >
           As a UI/UX designer, I dive deep into the details of the project, but
-          don't miss the big picture and look at the project from different
+          don&apos;t miss the big picture and look at the project from different
           angles. In order to improve the user experience, I work closely with
           both design team and the planning and developer team, being
           responsible for the final result.
