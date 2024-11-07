@@ -232,15 +232,18 @@ export default function List() {
           title="Work Experience"
           content={
             <div
+              className="flex flex-col gap-2 md:gap-2.5"
               style={{
                 fontSize: 'clamp(0.875rem, 1.5vw + 0.5rem, 1.25rem)',
                 lineHeight: 'clamp(1.25rem, 1.8vw + 0.5rem, 1.875rem)',
               }}
             >
-              <h3>{work.company}</h3>
-              <p className="text-[#949494] font-normal sm:font-medium">
-                {work.position}
-              </p>
+              <div className="flex flex-col">
+                <h3>{work.company}</h3>
+                <p className="text-[#949494] font-normal sm:font-medium">
+                  {work.position}
+                </p>
+              </div>
               <p>{work.project}</p>
               <ul className="list-disc pl-5 sm:pl-7 text-[#949494] font-normal sm:font-medium">
                 {work.description?.map((desc, idx) => (
