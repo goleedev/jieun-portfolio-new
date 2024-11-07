@@ -1,7 +1,6 @@
 'use client';
 
 import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
 import localFont from 'next/font/local';
 import { usePathname } from 'next/navigation';
 import { ReactNode, useEffect, useState } from 'react';
@@ -44,7 +43,7 @@ export default function DynamicBackground({
   return (
     <html
       lang="ko"
-      className={`${pretendard.variable} ${GeistSans.variable} ${GeistMono.variable} ${bgClass} transition-colors duration-500`}
+      className={`${pretendard.variable} ${GeistMono.variable} ${bgClass} transition-colors duration-500 font-pretendard`}
       suppressHydrationWarning
     >
       {children}
