@@ -8,9 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "gen-types": "npx supabase gen types typescript --project-id \"ftxhbocukjdwkcsyoxnk\" > types/database-generated.types.ts",
-    "types:contentful": "export $(cat .env | awk '!/^\\s*#/' | awk '!/^\\s*$/'); cf-content-types-generator --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN -o contentful/types -X && prettier --write contentful/types"
+    "types:contentful": "export $(cat .env | awk '!/^\\s*#/' | awk '!/^\\s*$/'); cf-content-types-generator --spaceId $CONTENTFUL_SPACE_ID --token $CONTENTFUL_MANAGEMENT_TOKEN -o contentful/types -X"
   },
   "dependencies": {
+    "@contentful/rich-text-types": "^17.0.0",
     "@next/third-parties": "^15.0.1",
     "@supabase/supabase-js": "^2.45.6",
     "cf-content-types-generator": "^2.15.5",

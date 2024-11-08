@@ -25,6 +25,9 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  images: {
+    domains: ['images.ctfassets.net'],
+  },
 };
 
 export default nextConfig;
