@@ -1,8 +1,9 @@
 import type { Asset, Entry } from 'contentful';
+import Image from 'next/image';
+import Link from 'next/link';
 
 import { TypeBlogPostSkeleton } from '@/contentful/types';
 import getBlogPosts from '@/data/get-blog-posts';
-import Image from 'next/image';
 
 export default async function BlogPage() {
   const posts = await getBlogPosts();
@@ -11,7 +12,7 @@ export default async function BlogPage() {
   return (
     <div>
       {blogPosts.map((post) => (
-        <div key={post.sys.id}>
+        <Link href={'/blog/' + post.fields.slug} key={post.sys.id}>
           <h2>{post.fields.title as string}</h2>
           <p>
             {post.fields.description
@@ -42,7 +43,7 @@ export default async function BlogPage() {
               />
             </>
           )}
-        </div>
+        </Link>
       ))}
     </div>
   );
