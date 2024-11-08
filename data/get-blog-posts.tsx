@@ -1,7 +1,7 @@
 import type { EntryCollection } from 'contentful';
 
 import type { TypeBlogPostSkeleton } from '@/contentful/types/TypeBlogPost';
-import { client } from './contentful-client';
+import { client } from '../utils/contentful-client';
 
 const getBlogPosts = async (): Promise<
   EntryCollection<TypeBlogPostSkeleton>

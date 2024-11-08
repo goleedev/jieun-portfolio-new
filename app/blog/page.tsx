@@ -1,7 +1,7 @@
 import type { Asset, Entry } from 'contentful';
 
 import { TypeBlogPostSkeleton } from '@/contentful/types';
-import getBlogPosts from '@/utils/get-blog-posts';
+import getBlogPosts from '@/data/get-blog-posts';
 import Image from 'next/image';
 
 export default async function BlogPage() {
