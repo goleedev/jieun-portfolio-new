@@ -6,7 +6,7 @@ import getWorkDetailBySlug from '@/data/get-work-detail';
 export default async function WorkDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   const detail = await getWorkDetailBySlug(slug);
