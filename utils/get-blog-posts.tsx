@@ -1,16 +1,16 @@
-import { createClient } from 'contentful';
+import type { EntryCollection } from 'contentful';
 
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID as string,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN as string,
-});
+import type { TypeBlogPostSkeleton } from '@/contentful/types/TypeBlogPost';
+import { client } from './contentful-client';
 
-const getBlogPosts = async () => {
-  const response = await client.getEntries({
+const getBlogPosts = async (): Promise<
+  EntryCollection<TypeBlogPostSkeleton>
+> => {
+  const response = await client.getEntries<TypeBlogPostSkeleton>({
     content_type: 'blogPost',
   });
 
-  return response.items;
+  return response;
 };
 
 export default getBlogPosts;
