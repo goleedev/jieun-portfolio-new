@@ -8,9 +8,9 @@ import { Document } from '@contentful/rich-text-types';
 export default async function BlogDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const slug = params.slug;
+  const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
 
   if (!post) {
