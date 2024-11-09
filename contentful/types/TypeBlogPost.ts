@@ -8,6 +8,7 @@ export interface TypeBlogPostFields {
     thumbnail: EntryFieldTypes.AssetLink;
     content: EntryFieldTypes.RichText;
     types: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
+    isFeatured?: EntryFieldTypes.Boolean;
 }
 
 export type TypeBlogPostSkeleton = EntrySkeletonType<TypeBlogPostFields, "blogPost">;
