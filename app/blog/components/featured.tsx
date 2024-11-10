@@ -4,7 +4,7 @@ import type { Asset, Entry } from 'contentful';
 import { TypeBlogPostSkeleton } from '@/contentful/types';
 
 const ProjectTypes = ({ types }: { types: string[] }) => (
-  <p className="flex gap-3">
+  <p className="flex gap-1 md:gap-2">
     {types.map((type) => (
       <span
         key={type}
@@ -45,7 +45,13 @@ export default function Featured({
             unoptimized
           />
           <div className="flex flex-col gap-3">
-            <ProjectTypes types={post.fields.types as string[]} />
+            <div className="flex gap-1 md:gap-2 items-center">
+              <ProjectTypes types={post.fields.types as string[]} />
+              <p className="text-[#949494] text-xs md:text-sm">
+                {post.fields.date as string}
+              </p>
+            </div>
+
             <p
               style={{
                 fontSize: 'clamp(1rem, 2vw + 0.5rem, 1.375rem)',
