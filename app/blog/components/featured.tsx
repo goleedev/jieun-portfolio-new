@@ -3,7 +3,7 @@ import Link from 'next/link';
 import type { Asset, Entry } from 'contentful';
 import { TypeBlogPostSkeleton } from '@/contentful/types';
 
-const ProjectTypes = ({ types }: { types: string[] }) => (
+export const ProjectTypes = ({ types }: { types: string[] }) => (
   <p className="flex gap-1 md:gap-2">
     {types.map((type) => (
       <span
@@ -34,7 +34,7 @@ export default function Featured({
         <Link
           href={`/blog/${post.fields.slug}`}
           key={post.sys.id}
-          className="flex-1 flex flex-col gap-6"
+          className="flex-1 flex flex-col gap-4 md:gap-6"
         >
           <Image
             src={`https:${(post.fields.thumbnail as Asset).fields.file?.url}`}
@@ -48,7 +48,7 @@ export default function Featured({
             priority
             unoptimized
           />
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2 md:gap-3">
             <div className="flex gap-1 md:gap-2 items-center">
               <ProjectTypes types={post.fields.types as string[]} />
               <p className="text-[#949494] text-xs md:text-sm">

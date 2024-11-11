@@ -22,7 +22,7 @@ export default function Featured() {
     <div className="flex flex-col gap-10 md:gap-5 md:flex-row pt-10 md:pt-[100px]">
       <Link
         href="/work/personal-branding"
-        className="flex-1 flex flex-col gap-6"
+        className="flex-1 flex flex-col gap-4 md:gap-6"
       >
         <Image
           src={'/images/image.png'}
