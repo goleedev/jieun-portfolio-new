@@ -36,10 +36,10 @@ export default async function BlogPage() {
   const groupedNonFeaturedPosts = groupByCategory(nonFeaturedPosts);
 
   return (
-    <div>
+    <>
       <Header />
       <Featured posts={featuredPosts} />
       <BlogPageContent groupedNonFeaturedPosts={groupedNonFeaturedPosts} />
-    </div>
+    </>
   );
 }
