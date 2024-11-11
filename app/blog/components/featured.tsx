@@ -27,7 +27,7 @@ export default function Featured({
 }) {
   return (
     <div className="flex flex-col gap-10 md:gap-5 md:flex-row pt-10 md:pt-[100px]">
-      <p className="visible md:hidden pb-6 text-[28px] font-medium leading-[34px]">
+      <p className="visible md:hidden -mb-4 text-[28px] font-medium leading-[34px]">
         Featured Posts
       </p>
       {posts.map((post) => (
