@@ -11,6 +11,7 @@ const ProjectTypes = ({ types }: { types: string[] }) => (
         className="rounded-full bg-white uppercase px-3.5 py-1.5 font-normal"
         style={{
           fontSize: 'clamp(0.75rem, 1vw + 0.25rem, 1rem)',
+          lineHeight: 'clamp(1rem, 1.5vw + 0.25rem, 1.25rem)',
         }}
       >
         {type}
@@ -26,6 +27,9 @@ export default function Featured({
 }) {
   return (
     <div className="flex flex-col gap-10 md:gap-5 md:flex-row pt-10 md:pt-[100px]">
+      <p className="visible md:hidden pb-6 text-[28px] font-medium leading-[34px]">
+        Featured Posts
+      </p>
       {posts.map((post) => (
         <Link
           href={`/blog/${post.fields.slug}`}
@@ -40,7 +44,7 @@ export default function Featured({
             }
             width={500}
             height={500}
-            className="rounded-lg object-fill w-full aspect-[4/5] md:aspect-[4/3]"
+            className="rounded-lg object-fill w-full aspect-[4/5] sm:aspect-[4/3]"
             priority
             unoptimized
           />

@@ -9,6 +9,7 @@ export interface TypeBlogPostFields {
     content: EntryFieldTypes.RichText;
     types: EntryFieldTypes.Array<EntryFieldTypes.Symbol>;
     isFeatured?: EntryFieldTypes.Boolean;
+    category: EntryFieldTypes.Symbol;
 }
 
 export type TypeBlogPostSkeleton = EntrySkeletonType<TypeBlogPostFields, "blogPost">;
