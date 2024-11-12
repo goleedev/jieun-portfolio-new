@@ -10,6 +10,10 @@ const useScrollBackground = (
     const navList = document.querySelector('header ul') as HTMLElement | null;
 
     document.documentElement.style.backgroundColor = initialHtmlColor;
+    document.documentElement.style.setProperty(
+      '--menu-button-bg',
+      initialHtmlColor === '#EFEFEF' ? ulScrolledColor : ulInitialColor
+    );
 
     if (navList) {
       navList.style.backgroundColor =
@@ -17,11 +21,19 @@ const useScrollBackground = (
     }
 
     const handleScroll = () => {
-      const isScrolled = window.scrollY > window.innerHeight * 0.6;
+      const isScrolled = window.scrollY > window.innerHeight * 0.9;
 
       document.documentElement.style.backgroundColor = isScrolled
         ? scrolledHtmlColor
         : initialHtmlColor;
+      document.documentElement.style.setProperty(
+        '--menu-button-bg',
+        isScrolled
+          ? ulScrolledColor
+          : initialHtmlColor === '#EFEFEF'
+          ? ulScrolledColor
+          : ulInitialColor
+      );
 
       if (navList) {
         if (initialHtmlColor === '#EFEFEF') {
@@ -39,6 +51,7 @@ const useScrollBackground = (
     return () => {
       window.removeEventListener('scroll', handleScroll);
       document.documentElement.style.backgroundColor = '';
+      document.documentElement.style.removeProperty('--menu-button-bg');
       if (navList) navList.style.backgroundColor = '';
     };
   }, [initialHtmlColor, scrolledHtmlColor, ulInitialColor, ulScrolledColor]);
