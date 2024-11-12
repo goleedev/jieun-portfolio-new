@@ -7,33 +7,30 @@ const useScrollBackground = (
   ulScrolledColor: string
 ) => {
   useEffect(() => {
+    const navList = document.querySelector('header ul') as HTMLElement | null;
+
     document.documentElement.style.backgroundColor = initialHtmlColor;
 
-    const navList = document.querySelector('header ul') as HTMLElement | null;
     if (navList) {
       navList.style.backgroundColor =
-        initialHtmlColor === scrolledHtmlColor
-          ? ulScrolledColor
-          : ulInitialColor;
+        initialHtmlColor === '#EFEFEF' ? ulScrolledColor : ulInitialColor;
     }
 
     const handleScroll = () => {
-      const isScrolled = window.scrollY > window.innerHeight;
+      const isScrolled = window.scrollY > window.innerHeight * 0.6;
 
       document.documentElement.style.backgroundColor = isScrolled
         ? scrolledHtmlColor
         : initialHtmlColor;
 
       if (navList) {
-        navList.style.backgroundColor = isScrolled
-          ? ulScrolledColor
-          : ulInitialColor;
-      }
-
-      if (isScrolled && scrolledHtmlColor === '#EFEFEF') {
-        document.documentElement.classList.add('grey-background');
-      } else {
-        document.documentElement.classList.remove('grey-background');
+        if (initialHtmlColor === '#EFEFEF') {
+          navList.style.backgroundColor = ulScrolledColor;
+        } else {
+          navList.style.backgroundColor = isScrolled
+            ? ulScrolledColor
+            : ulInitialColor;
+        }
       }
     };
 
@@ -43,7 +40,6 @@ const useScrollBackground = (
       window.removeEventListener('scroll', handleScroll);
       document.documentElement.style.backgroundColor = '';
       if (navList) navList.style.backgroundColor = '';
-      document.documentElement.classList.remove('grey-background');
     };
   }, [initialHtmlColor, scrolledHtmlColor, ulInitialColor, ulScrolledColor]);
 };
