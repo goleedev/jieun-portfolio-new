@@ -12,6 +12,7 @@ interface CursorImage {
   size: number;
   x: number;
   y: number;
+  rotate: number;
 }
 
 export default function HomePage() {
@@ -34,6 +35,7 @@ export default function HomePage() {
         size: 100 + Math.floor(Math.random() * (350 - 100)),
         x: e.clientX,
         y: e.clientY,
+        rotate: Math.random() * 180 - 45,
       };
 
       setCursorImages((prev) => [...prev, newImage].slice(-15));
@@ -62,7 +64,7 @@ export default function HomePage() {
               top: `${cursorImage.y}px`,
               width: `${cursorImage.size}px`,
               height: `${cursorImage.size}px`,
-              transform: `translate(-50%, -50%)`,
+              transform: `translate(-50%, -50%) rotate(${cursorImage.rotate}deg)`,
               animation: 'fadeOut 2s linear forwards',
             }}
           >
