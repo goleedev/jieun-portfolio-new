@@ -46,8 +46,8 @@ export default function OtherPosts({
 
             <p
               style={{
-                fontSize: 'clamp(1rem, 2vw + 0.5rem, 1.375rem)',
-                lineHeight: 'clamp(1.5rem, 2.5vw + 0.5rem, 1.875rem)',
+                fontSize: 'clamp(18px, 1.2vw, 22px)',
+                lineHeight: 'clamp(24px, 1.2vw, 32px)',
               }}
               className="font-medium"
             >

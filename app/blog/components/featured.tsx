@@ -10,8 +10,8 @@ export const ProjectTypes = ({ types }: { types: string[] }) => (
         key={type}
         className="rounded-full bg-white uppercase px-3.5 py-1.5 font-normal"
         style={{
-          fontSize: 'clamp(0.75rem, 1vw + 0.25rem, 1rem)',
-          lineHeight: 'clamp(1rem, 1.5vw + 0.25rem, 1.25rem)',
+          fontSize: 'clamp(10px, 1.2vw, 14px)',
+          lineHeight: 'clamp(14px, 1.2vw, 20px)',
         }}
       >
         {type}
@@ -58,8 +58,8 @@ export default function Featured({
 
             <p
               style={{
-                fontSize: 'clamp(1rem, 2vw + 0.5rem, 1.375rem)',
-                lineHeight: 'clamp(1.5rem, 2.5vw + 0.5rem, 1.875rem)',
+                fontSize: 'clamp(18px, 1.2vw, 22px)',
+                lineHeight: 'clamp(24px, 1.2vw, 32px)',
               }}
               className="font-medium"
             >

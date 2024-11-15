@@ -106,7 +106,7 @@ export default async function BlogDetailPage({
   };
 
   return (
-    <>
+    <div className="px-0 md:px-5">
       <div className="pt-10 md:pt-20 pb-[60px] md:pb-[84px]">
         <div className="max-w-[720px] w-full mx-auto flex flex-col text-center pb-10 gap-8 md:gap-10 md:pb-20">
           <div className="flex justify-center">
@@ -138,8 +138,8 @@ export default async function BlogDetailPage({
             <span
               className="flex items-center gap-0.5 rounded-full bg-white uppercase px-3.5 py-1.5 font-normal"
               style={{
-                fontSize: 'clamp(0.75rem, 1vw + 0.25rem, 1rem)',
-                lineHeight: 'clamp(1rem, 1.5vw + 0.25rem, 1.25rem)',
+                fontSize: 'clamp(10px, 1.2vw, 14px)',
+                lineHeight: 'clamp(14px, 1.2vw, 20px)',
               }}
             >
               <CalendarIcon
@@ -164,38 +164,118 @@ export default async function BlogDetailPage({
         </div>
       </div>
 
-      {relatedPosts.length > 0 && (
-        <div className="max-w-[720px] w-full mx-auto pt-10">
-          <h3 className="text-2xl font-semibold mb-4">Related Projects</h3>
-          <ul className="space-y-4">
-            {relatedPosts.map((relatedPost) => (
-              <li key={relatedPost.sys.id} className="border p-4 rounded-lg">
-                <h4 className="text-xl font-semibold">
-                  {relatedPost.fields.title as string}
-                </h4>
-                <p>{relatedPost.fields.description as string}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="pt-8 md:pt-10 border-t border-[#CCC]">
+        <h3 className="text-lg leading-6 pb-6 md:leading-8 md:text-[22px]">
+          Related Posts
+        </h3>
+        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4">
+          {relatedPosts.length > 0 && (
+            <Link
+              key={post.sys.id}
+              href={'/blog/' + post.fields.slug}
+              className="flex-1 flex flex-col gap-4 md:gap-6"
+            >
+              {post.fields.thumbnail && (
+                <Image
+                  src={`https:${
+                    (post.fields.thumbnail as Asset)?.fields.file?.url
+                  }`}
+                  alt={
+                    ((post.fields.thumbnail as Asset).fields.title as string) ||
+                    'Thumbnail'
+                  }
+                  width={400}
+                  height={400}
+                  className="rounded-md object-cover w-full"
+                />
+              )}
+              <div className="flex flex-col gap-2 md:gap-3">
+                <div className="flex gap-1 md:gap-2 items-center">
+                  <ProjectTypes types={post.fields.types as string[]} />
+                  <p className="text-[#949494] text-xs md:text-sm">
+                    {post.fields.date as string}
+                  </p>
+                </div>
 
-      <div className="max-w-[720px] w-full mx-auto pt-10 flex justify-between">
+                <p
+                  style={{
+                    fontSize: 'clamp(18px, 1.2vw, 22px)',
+                    lineHeight: 'clamp(24px, 1.2vw, 32px)',
+                  }}
+                  className="font-medium"
+                >
+                  {post.fields.title as string}
+                </p>
+              </div>
+            </Link>
+          )}
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-3 md:gap-0 md:flex-row justify-between rounded-xl my-[60px] md:mb-10 md:mt-20 bg-transparent md:bg-white ">
         {previousPost && (
-          <Link href={`/blog/${previousPost.fields.slug}`}>
-            <span className="text-blue-500 hover:underline">
-              ← {previousPost.fields.title as string}
-            </span>
+          <Link
+            href={`/blog/${previousPost.fields.slug}`}
+            className="flex gap-3 md:gap-4 justify-start px-3 py-4 md:px-6 md:py-7 bg-white rounded-xl"
+          >
+            <Image
+              src={`https:${
+                (previousPost.fields.thumbnail as Asset)?.fields.file?.url
+              }`}
+              alt={
+                (previousPost.fields.thumbnail as Asset)?.fields.title as string
+              }
+              width={65}
+              height={65}
+              className="w-[52px] md:w-[65px] aspect-square rounded-lg object-cover"
+            />
+            <div className="flex flex-col gap-2">
+              <span
+                className="flex items-center w-fit gap-0.5 rounded-full bg-[#F1F1ED] uppercase px-3.5 py-1.5 font-normal"
+                style={{
+                  fontSize: 'clamp(10px, 1.2vw, 14px)',
+                  lineHeight: 'clamp(14px, 1.2vw, 20px)',
+                }}
+              >
+                Previous
+              </span>
+              <span className="font-medium text-sm md:text-lg">
+                {previousPost.fields.title as string}
+              </span>
+            </div>
           </Link>
         )}
         {nextPost && (
-          <Link href={`/blog/${nextPost.fields.slug}`}>
-            <span className="text-blue-500 hover:underline">
-              {nextPost.fields.title as string} →
-            </span>
+          <Link
+            href={`/blog/${nextPost.fields.slug}`}
+            className="flex gap-3 md:gap-4 justify-end px-3 py-4 md:px-6 md:py-7 bg-white rounded-xl"
+          >
+            <div className="flex flex-col gap-2 items-end">
+              <span
+                className="flex items-center w-fit gap-0.5 rounded-full bg-[#F1F1ED] uppercase px-3.5 py-1.5 font-normal"
+                style={{
+                  fontSize: 'clamp(10px, 1.2vw, 14px)',
+                  lineHeight: 'clamp(14px, 1.2vw, 20px)',
+                }}
+              >
+                Next
+              </span>
+              <span className="font-medium text-sm md:text-lg">
+                {nextPost.fields.title as string}
+              </span>
+            </div>
+            <Image
+              src={`https:${
+                (nextPost.fields.thumbnail as Asset)?.fields.file?.url
+              }`}
+              alt={(nextPost.fields.thumbnail as Asset)?.fields.title as string}
+              width={65}
+              height={65}
+              className="rounded-lg w-[52px] md:w-[65px] aspect-square object-cover"
+            />
           </Link>
         )}
       </div>
-    </>
+    </div>
   );
 }
