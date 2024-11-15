@@ -154,7 +154,7 @@ export default async function BlogDetailPage({
           </div>
         </div>
         <div className="border-t border-[#CCC]">
-          <div className="rich-text-content max-w-[720px] w-full mx-auto pt-[60px] md:pt-20">
+          <div className="rich-text-content flex flex-col gap-2 md:gap-4 max-w-[720px] w-full mx-auto pt-[60px] md:pt-20">
             {post.fields.content &&
               documentToReactComponents(
                 post.fields.content as Document,
