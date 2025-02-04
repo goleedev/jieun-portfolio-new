@@ -56,8 +56,12 @@ export default async function BlogDetailPage({
   const renderOptions: Options = {
     renderMark: {
       [MARKS.CODE]: (text) => <CodeBlock code={text as string} />,
+      [MARKS.BOLD]: (children) => <b className="font-medium">{children}</b>,
     },
     renderNode: {
+      [MARKS.BOLD]: (node: Node, children) => (
+        <b className="font-medium">{children}</b>
+      ),
       [BLOCKS.PARAGRAPH]: (node: Node, children: React.ReactNode) => (
         <div>{children}</div>
       ),
@@ -154,7 +158,7 @@ export default async function BlogDetailPage({
           </div>
         </div>
         <div className="border-t border-[#CCC]">
-          <div className="rich-text-content flex flex-col gap-2 md:gap-4 max-w-[720px] w-full mx-auto pt-[60px] md:pt-20">
+          <div className="rich-text-content font-light flex flex-col gap-2 md:gap-4 max-w-[720px] w-full mx-auto pt-[60px] md:pt-20">
             {post.fields.content &&
               documentToReactComponents(
                 post.fields.content as Document,

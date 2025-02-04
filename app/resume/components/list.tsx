@@ -133,13 +133,13 @@ function ListItem({ title, content }: IListItem) {
     <li className="flex flex-col pt-8 pb-[60px] px-0 sm:px-5 sm:pt-10 sm:pb-20 sm:grid sm:grid-cols-2 border-b border-[#CCCCCC] font-medium">
       <div
         style={{
-          fontSize: 'clamp(1.75rem, 2vw + 1rem, 2.75rem)',
-          lineHeight: 'clamp(2rem, 2.5vw + 1rem, 3.25rem)',
+          fontSize: 'clamp(1.75rem, 2vw + 1rem, 2.5rem)', // 최대 40px
+          lineHeight: 'clamp(2rem, 2.5vw + 1rem, 3rem)', // 최대 48px
         }}
       >
         {title}
       </div>
-      <div>{content}</div>
+      <div className="font-normal">{content}</div>
     </li>
   );
 }
@@ -201,8 +201,11 @@ export default function List() {
         }
         content={
           <div
-            style={{ fontSize: 'clamp(1rem, 1.5vw + 0.5rem, 1.25rem)' }}
-            className="flex flex-col gap-4 pt-6 sm:pt-0 sm:gap-5"
+            style={{
+              fontSize: 'clamp(1rem, 1.5vw + 0.5rem, 1.125rem)', // 최대 18px
+              lineHeight: 'clamp(1.5rem, 1.5vw + 0.5rem, 1.75rem)', // 최대 28px
+            }}
+            className="flex flex-col gap-4 pt-6 sm:pt-0 sm:gap-5 "
           >
             <p>
               As a UI/UX designer, I dive deep into the details of the project,
@@ -213,10 +216,10 @@ export default function List() {
             </p>
             <p
               style={{
-                fontSize: 'clamp(0.875rem, 1.25vw + 0.5rem, 1.125rem)',
-                lineHeight: 'clamp(1.25rem, 1.5vw + 0.5rem, 1.875rem)',
+                fontSize: 'clamp(0.875rem, 1.25vw + 0.5rem, 1.125rem)', // 최대 18px
+                lineHeight: 'clamp(1.25rem, 1.5vw + 0.5rem, 1.5rem)', // 최대 24px
               }}
-              className="text-[#949494] font-normal sm:font-medium"
+              className="text-[#949494] "
             >
               저는 UI/UX 디자이너로서 프로젝트의 세부 사항을 깊이 파고들면서도
               큰 그림을 놓치지 않고, 다양한 각도에서 프로젝트를 바라보려 합니다.
@@ -232,20 +235,18 @@ export default function List() {
           title="Work Experience"
           content={
             <div
-              className="flex flex-col gap-2 md:gap-2.5"
+              className="flex flex-col gap-2 md:gap-2.5 font-normal"
               style={{
-                fontSize: 'clamp(0.875rem, 1.5vw + 0.5rem, 1.25rem)',
-                lineHeight: 'clamp(1.25rem, 1.8vw + 0.5rem, 1.875rem)',
+                fontSize: 'clamp(0.875rem, 1.5vw + 0.5rem, 1.125rem)', // 최대 18px
+                lineHeight: 'clamp(1.25rem, 1.8vw + 0.5rem, 1.875rem)', // 기존 유지
               }}
             >
               <div className="flex flex-col">
-                <h3>{work.company}</h3>
-                <p className="text-[#949494] font-normal sm:font-medium">
-                  {work.position}
-                </p>
+                <h3 className="font-medium">{work.company}</h3>
+                <p className="text-[#949494] font-normal">{work.position}</p>
               </div>
               <p>{work.project}</p>
-              <ul className="list-disc pl-5 sm:pl-7 text-[#949494] font-normal sm:font-medium">
+              <ul className="list-disc pl-5 sm:pl-7 text-[#949494]">
                 {work.description?.map((desc, idx) => (
                   <li key={idx}>{desc}</li>
                 ))}

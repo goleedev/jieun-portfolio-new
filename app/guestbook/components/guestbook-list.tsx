@@ -48,7 +48,7 @@ export default function GuestbookList({
             <span className="bg-white px-3 md:px-3.5 uppercase rounded-full text-xs md:text-sm leading-[22px] md:leading-8 w-fit h-[22px] md:h-8 text-center">
               {anonymousTag}
             </span>
-            <p className="text-sm md:text-lg pt-2 md:pt-3 leading-[30px] pb-1 md:pb-2">
+            <p className="text-sm pt-2 md:pt-3 leading-[30px] pb-1 md:pb-2">
               {message.message}
             </p>
             <p className="text-[#949494] text-[12px] md:text-sm leading-[18px] md:leading-5 pb-4 md:pb-5">

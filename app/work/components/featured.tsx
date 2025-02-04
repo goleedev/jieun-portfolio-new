@@ -8,7 +8,7 @@ const ProjectTypes = ({ types }: { types: string[] }) => (
         key={type}
         className="rounded-full bg-white uppercase px-3.5 py-1.5 font-normal"
         style={{
-          fontSize: 'clamp(0.75rem, 1vw + 0.25rem, 1rem)', // Responsive font size for tags
+          fontSize: 'clamp(0.75rem, 1vw + 0.25rem, 0.875rem)', // 최소 12px, 최대 14px
         }}
       >
         {type}
@@ -40,7 +40,6 @@ export default function Featured() {
               fontSize: 'clamp(1rem, 2vw + 0.5rem, 1.375rem)',
               lineHeight: 'clamp(1.5rem, 2.5vw + 0.5rem, 1.875rem)',
             }}
-            className="font-medium"
           >
             Personal Branding
           </p>

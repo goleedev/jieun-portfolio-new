@@ -115,7 +115,7 @@ export default function GuestbookForm({
             maxLength={300}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full placeholder:text-[#949494] text-sm md:text-lg px-6 pt-[54px] md:pt-[72px] h-[190px] md:h-[272px] pb-5 md:pb-7 outline-none rounded-xl resize-none"
+            className="w-full placeholder:text-[#949494] font-light text-sm px-6 pt-[54px] md:pt-[72px] h-[190px] md:h-[272px] pb-5 md:pb-7 outline-none rounded-xl resize-none"
           />
         </div>
         <div className="flex flex-wrap gap-4 md:gap-5 text-[12px] md:text-sm leading-8 mt-6 md:mt-10">

@@ -9,7 +9,7 @@ export default function Header() {
           }}
           className="font-mono font-semibold"
         >
-          ALL <br /> PROJECTS
+          ALL <br /> WORKS
         </h1>
       </div>
       <div className="md:w-1/3">
@@ -17,6 +17,7 @@ export default function Header() {
           style={{
             fontSize: 'clamp(0.875rem, 1vw + 0.5rem, 1.125rem)',
             lineHeight: 'clamp(1.25rem, 1.5vw + 0.5rem, 1.75rem)',
+            fontWeight: 300,
           }}
         >
           As a UI/UX designer, I dive deep into the details of the project, but

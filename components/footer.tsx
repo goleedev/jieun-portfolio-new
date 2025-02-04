@@ -16,7 +16,7 @@ export default function Footer() {
 
   if (pathname === '/') {
     return (
-      <footer className="sm:flex-row justify-center items-center flex flex-col sm:font-medium text-center font-pretendard text-sm sm:text-lg leading-5 sm:leading-6 pb-5 sm:pb-6">
+      <footer className="sm:flex-row justify-center items-center flex flex-col text-center font-pretendard text-sm sm:text-lg leading-5 sm:leading-6 pb-5 sm:pb-6">
         <span>Creating diverse works</span>
         <span>through UI/UX design and visual identity.</span>
       </footer>
@@ -25,8 +25,8 @@ export default function Footer() {
 
   if (existingPaths) {
     return (
-      <footer className="border-t border-[#CCCCCC] pt-6 px-0 sm:px-5">
-        <section className="text-sm md:text-lg leading-5 md:leading-6 md:font-medium pb-10 md:pb-40 flex flex-col md:grid md:grid-cols-2">
+      <footer className="border-t border-[#CCCCCC] pt-6">
+        <section className="text-sm md:text-base leading-5 md:leading-6 pb-10 md:pb-40 flex flex-col md:grid md:grid-cols-2">
           <p className="pb-[60px] md:pb-0">Delight In Design</p>
 
           <div className="grid grid-cols-3">
